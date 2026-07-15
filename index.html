@@ -667,3 +667,25 @@
 
 </body>
 </html>
+<!-- আপডেট করা ফর্ম অংশ -->
+<div class="contact-section" id="contact">
+    <h3>Get in Touch</h3>
+    <p class="contact-desc">Have questions about custom artwork or orders? Send us a message!</p>
+    
+    <!-- data-netlify="true" যোগ করা হয়েছে -->
+    <form name="contact" method="POST" data-netlify="true">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button type="submit" class="contact-submit-btn">Send Message</button>
+    </form>
+</div>
