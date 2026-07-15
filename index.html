@@ -197,3 +197,70 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRS Creation | Abstract Wall Art & Modern Canvas Prints Gallery</title>
+    <link rel="icon" href="nrs_logo.png" type="image/png">
+    <style>
+        :root { --primary-color: #0f172a; --accent-color: #6366f1; --bg-color: #f8fafc; --card-bg: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: var(--bg-color); line-height: 1.6; }
+        header { background-color: #0b0f19; padding: 1rem; text-align: center; }
+        .logo-img { height: 50px; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .card { background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 1rem; }
+        .buy-btn { display: block; margin-top: 10px; background: var(--accent-color); color: #fff; padding: 0.5rem; text-align: center; text-decoration: none; border-radius: 5px; }
+        .bottom-cta, .about-section, .contact-section { max-width: 800px; margin: 3rem auto; padding: 2rem; background: #fff; border-radius: 10px; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="nrs_logo.png" alt="NRS Logo" class="logo-img">
+    </header>
+
+    <main class="container">
+        <div class="gallery-grid">
+            <!-- Projects 1-10 -->
+            <script>
+                for(let i=1; i<=10; i++) {
+                    document.write(`
+                        <div class="card">
+                            <img src="project-${i}.jpg" alt="Project ${i}" class="card-img">
+                            <div class="card-body">
+                                <h3>Project ${i}</h3>
+                                <p>Modern 3D abstract visualization.</p>
+                                <a href="#" class="buy-btn">View Project / Buy</a>
+                            </div>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+
+        <section class="bottom-cta">
+            <h3>Looking for More Artwork & Apparel?</h3>
+            <p>Explore our complete catalog of high-quality canvas prints, custom apparel, and aesthetic home decor options.</p>
+            <a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">Explore All Products on Spring Store ➔</a>
+        </section>
+
+        <section class="about-section">
+            <h3>About the Founder & Creator</h3>
+            <p><strong>Shaikh Ziadul Haque</strong> is a versatile creative professional, author, playwright, 3D artist, and digital entrepreneur. Driven by an innovative perspective and a deep sense of social responsibility, he merges artistic storytelling with modern digital craftsmanship through <strong>NRS Creation</strong>.</p>
+            <div class="about-grid">
+                <div><h4>🎭 Literary & Theatre</h4><p>Active member of Aranyak Natyadal. Author of <em>We Are Responsible</em> and the Inspirational book series.</p></div>
+                <div><h4>🎨 3D & Digital Art</h4><p>Skilled in Blender. Founder of NRS Creation producing abstract wall art and VFX.</p></div>
+                <div><h4>🌍 Social Activism</h4><p>Member of Transparency International. Working on the Harun Nouri Foundation.</p></div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
