@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/sitemap.xml
