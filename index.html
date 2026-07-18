@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>NRS Creation | Art & Video</title>
+    <title>NRS Creation | Art & Video Gallery</title>
     <!-- Favicon -->
     <link rel="icon" href="nrs_logo.png" type="image/png">
-
-  
 
     <style>
         /* Base Styles & CSS Variables */
@@ -32,6 +30,7 @@
             background-color: var(--bg-color);
             color: var(--text-dark);
             line-height: 1.6;
+            text-align: left;
         }
 
         /* Header / Navbar */
@@ -58,7 +57,6 @@
             text-decoration: none;
         }
 
-        /* Reduced Logo Height for a cleaner navbar */
         .logo-img {
             height: 55px;
             width: auto;
@@ -94,12 +92,11 @@
             animation: heroGradientMotion 12s ease infinite;
             color: #ffffff;
             text-align: center;
-            padding: 5rem 1.5rem;
+            padding: 6rem 1.5rem;
             position: relative;
             overflow: hidden;
         }
 
-        /* Motion animation keyframes */
         @keyframes heroGradientMotion {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -107,16 +104,16 @@
         }
 
         .hero h1 {
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             font-weight: 700;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #cbd5e1;
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 2rem;
         }
 
@@ -160,51 +157,139 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Main Gallery Section */
+        /* Layout Container & Grids */
         .container {
             max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            margin: 3.5rem 0 2rem;
             color: var(--primary-color);
+            position: relative;
         }
 
-       <style>
-        body { font-family: sans-serif; margin: 0; background: #f4f4f4; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        h2 { margin: 40px 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #000; color: #fff; text-decoration: none; border-radius: 5px; }
-    </style>
-</head>
-<body>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-<div class="container">
-    <h1>NRS Creation</h1>
+        /* Component Cards */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
 
-    <!-- YouTube Section -->
-    <h2>Latest Videos</h2>
-    <div class="grid">
-        <iframe src="https://www.youtube.com/embed/U_VbImyvG5U" height="250" width="100%" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0" height="250" width="100%" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/hiFjLHz9qKE" height="250" width="100%" frameborder="0" allowfullscreen></iframe>
-    </div>
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #1e293b;
+        }
+
+        /* Banner CTA */
+        .catalog-cta {
+            text-align: center;
+            margin-top: 4rem;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .catalog-cta h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .catalog-cta p {
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .catalog-cta .btn-large {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.9rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .catalog-cta .btn-large:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
 
         /* About Creator Section Styles */
         .about-section {
-            margin-top: 4rem;
+            margin-top: 5rem;
             padding: 3.5rem 2.5rem;
             background-color: #ffffff;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
 
         .about-section h3 {
@@ -276,7 +361,7 @@
 
         /* Contact Us Section Styles */
         .contact-section {
-            margin-top: 4rem;
+            margin-top: 5rem;
             padding: 3rem 2rem;
             background-color: #ffffff;
             border-radius: 16px;
@@ -284,6 +369,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            border: 1px solid #e2e8f0;
         }
 
         .contact-section h3 {
@@ -367,8 +453,8 @@
             background-color: #0b0f19;
             color: #94a3b8;
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
+            padding: 2.5rem 1rem;
+            margin-top: 5rem;
         }
 
         footer p {
@@ -378,11 +464,148 @@
 </head>
 <body>
 
-  
+    <!-- Header & Navbar Navigation -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-container">
+                <img src="nrs_logo.png" alt="NRS Creation Logo" class="logo-img">
+            </a>
+            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="nav-link">Visit Spring Store ↗</a>
+        </div>
+    </header>
+
+    <!-- Interactive Hero Section -->
+    <section class="hero">
+        <h1>NRS Creation</h1>
+        <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals to transform contemporary aesthetic spaces.</p>
+        <div class="hero-buttons">
+            <a href="#gallery" class="cta-btn">Explore Artwork</a>
+            <a href="#videos" class="secondary-btn">Watch Latest Videos</a>
+        </div>
+    </section>
+
+    <!-- Main Content Layout Section -->
+    <main class="container">
+
+        <!-- YouTube Video Showcase Grid Section -->
+        <h2 class="section-title" id="videos">Latest Videos</h2>
+        <div class="grid">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/U_VbImyvG5U" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/hiFjLHz9qKE" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Premium Featured Wall Art Grid Collection Section -->
+        <h2 class="section-title" id="gallery">Featured Wall Art Collection</h2>
+        <div class="grid">
+            <!-- Item 1: Abstract Canvas #634 -->
+            <div class="card">
+                <div>
+                    <h3>Abstract Canvas #634</h3>
+                    <p>Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
+                </div>
+                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
+
+            <!-- Item 2: Abstract Canvas #579 -->
+            <div class="card">
+                <div>
+                    <h3>Abstract Canvas #579</h3>
+                    <p>Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
+                </div>
+                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
+
+            <!-- Item 3: Abstract Canvas #580 -->
+            <div class="card">
+                <div>
+                    <h3>Abstract Canvas #580</h3>
+                    <p>Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
+                </div>
+                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
+
+            <!-- Item 4: Abstract Canvas #575 -->
+            <div class="card">
+                <div>
+                    <h3>Abstract Canvas #575</h3>
+                    <p>Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
+                </div>
+                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
+        </div>
+
+        <!-- Call To Action Complete Catalog Banner Block -->
+        <div class="catalog-cta">
+            <h3>Looking for More Artwork & Apparel?</h3>
+            <p>Explore our complete catalog of high-quality canvas prints, custom apparel, and aesthetic home decor options.</p>
+            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn-large">Explore All Products on Spring Store ➔</a>
+        </div>
+
+        <!-- About Creator Core Portfolio Showcase Section -->
+        <section class="about-section">
+            <h3>About The Agency</h3>
+            <p class="about-intro">NRS Creation is a multi-disciplinary design and multimedia studio specializing in premium 3D modeling, high-end motion graphics simulations, VFX workflows, and luxury custom interior artwork assets.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4><span>🎨</span> Abstract Fine Arts</h4>
+                    <p>Creating highly conceptual, modern abstract wall decor and premium high-contrast dynamic textures tailored for bespoke homes.</p>
+                </div>
+                <div class="about-card">
+                    <h4><span>📐</span> 3D Modeling & VFX</h4>
+                    <p>Advanced Blender workflows incorporating deep Geometry Nodes engineering, physics simulation pipelines, and stunning cinematic edits.</p>
+                </div>
+                <div class="about-card">
+                    <h4><span>🚀</span> Digital Agency Ecosystem</h4>
+                    <p>Driving digital production, original literature architecture, and unique retail brands under a unified, premium umbrella brand.</p>
+                </div>
+            </div>
+
+            <div class="about-links">
+                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank">Spring Marketplace</a>
+                <a href="#videos">YouTube Portfolio</a>
+                <a href="#gallery">Digital Gallery</a>
+            </div>
+        </section>
+
+        <!-- Dynamic Secure Contact Form Section -->
+        <section class="contact-section">
+            <h3>Get In Touch</h3>
+            <p class="contact-desc">Have a question about our products or want to discuss a custom design project? Drop us a line below.</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required placeholder="Tell us about your project or inquiry..."></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="contact-submit-btn">Send Message</button>
+                <div id="statusMsg" class="status-msg"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Global App Footer Section -->
+    <footer>
         <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
     </footer>
 
-    <!-- Contact Form API Script -->
+    <!-- Contact Form Serverless API Script -->
     <script>
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
