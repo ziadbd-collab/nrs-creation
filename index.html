@@ -4,246 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NRS Creation | Abstract Wall Art & Modern Canvas Prints Gallery</title>
-
-    <!-- Favicon -->
     <link rel="icon" href="nrs_logo.png" type="image/png">
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore NRS Creation by Shaikh Ziadul Haque for premium Abstract Wall Art, contemporary canvas prints, and aesthetic home decor. Transform your space with high-quality artistic prints. Shop on Spring Store.">
-    <meta name="keywords" content="NRS Creation, Shaikh Ziadul Haque, Abstract Wall Art, Canvas Prints, Modern Art, Home Decor, Living Room Decor, Aesthetic Canvas, Interior Design Art">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/" />
-
-    <!-- Open Graph / Social Media Preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/">
-    <meta property="og:title" content="NRS Creation | Abstract Wall Art & Modern Canvas Prints">
-    <meta property="og:description" content="Premium Abstract Wall Art Collection by NRS Creation. Elevate your interior space with modern, vibrant canvas designs.">
-    <meta property="og:image" content="nrs_logo.png">
-
-    <!-- Structured Data / Schema Markup for Google Search (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "ArtGallery",
-      "name": "NRS Creation",
-      "image": "http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/nrs_logo.png",
-      "description": "Premium Abstract Wall Art Collection and modern canvas prints by NRS Creation.",
-      "url": "http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/"
-    }
-    </script>
-
+    <meta name="description" content="Explore NRS Creation by Shaikh Ziadul Haque for premium Abstract Wall Art, contemporary canvas prints, and aesthetic home decor.">
+    
     <style>
-        /* Base Styles & CSS Variables */
-        :root {
-            --primary-color: #0f172a;
-            --accent-color: #6366f1;
-            --accent-hover: #4f46e5;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-        }
+        :root { --primary-color: #0f172a; --accent-color: #6366f1; --accent-hover: #4f46e5; --bg-color: #f8fafc; --card-bg: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-color); line-height: 1.6; }
+        
+        /* Navbar & Hero */
+        header { background-color: #0b0f19; padding: 0.5rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 55px; }
+        .nav-link { text-decoration: none; color: #fff; background: var(--accent-color); padding: 0.6rem 1.5rem; border-radius: 25px; }
+        
+        .hero { background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81); color: #fff; text-align: center; padding: 5rem 1rem; }
+        
+        /* Video Grid */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .video-card iframe { width: 100%; height: 350px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        
+        /* Gallery Grid */
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card-img { width: 100%; height: 300px; object-fit: cover; }
+        .card-body { padding: 1.5rem; }
+        
+        .buy-btn, .full-store-btn { display: block; background: var(--primary-color); color: #fff; padding: 0.8rem; text-align: center; text-decoration: none; border-radius: 8px; margin-top: 1rem; }
+        .section-title { text-align: center; margin-bottom: 2rem; color: var(--primary-color); }
+        
+        /* About & Contact styles remain as you had... */
+    </style>
+</head>
+<body>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <header>
+        <div class="navbar">
+            <a href="#"><img src="nrs_logo.png" alt="Logo" class="logo-img"></a>
+            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="nav-link">Visit Spring Store ↗</a>
+        </div>
+    </header>
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Header / Navbar */
-        header {
-            background-color: #0b0f19;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        /* Reduced Logo Height for a cleaner navbar */
-        .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-            filter: brightness(1.2) contrast(1.1);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #ffffff;
-            background-color: var(--accent-color);
-            font-weight: 600;
-            padding: 0.65rem 1.4rem;
-            border-radius: 25px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
-        }
-
-        .nav-link:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        /* Hero Section with Motion Graphics Effect */
-        .hero {
-            background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81, #0f172a, #1e1b4b);
-            background-size: 400% 400%;
-            animation: heroGradientMotion 12s ease infinite;
-            color: #ffffff;
-            text-align: center;
-            padding: 5rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Motion animation keyframes */
-        @keyframes heroGradientMotion {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero h1 {
-            font-size: 2.6rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: #cbd5e1;
-            max-width: 650px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero .cta-btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .hero .cta-btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .hero .secondary-btn {
-            display: inline-block;
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .hero .secondary-btn:hover {
-            border-color: #fff;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.video-card iframe {
-    width: 100%;
-    height: 350px; /* ভিডিওর উচ্চতা বাড়িয়ে বড় করা হয়েছে */
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-        /* Main Gallery Section */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--primary-color);
-        }
-
-       <main class="container">
-    <!-- YouTube Section -->
-    <h2 class="section-title">Latest Videos from NRS Creation</h2>
-    <div class="video-grid">
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/U_VbImyvG5U" frameborder="0" allowfullscreen></iframe></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0" frameborder="0" allowfullscreen></iframe></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/hiFjLHz9qKE" frameborder="0" allowfullscreen></iframe></div>
-    </div>
-    <div style="text-align: center; margin: 2rem 0;">
-        <a href="https://www.youtube.com/@NRScreation-tw9mr" target="_blank" class="buy-btn">Visit Our YouTube Channel ➔</a>
-    </div>
-
-    <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
-
-    <!-- Wall Art Collection Section -->
-    <h2 class="section-title">Featured Wall Art Collection</h2>
-    <div class="gallery-grid">
-        <!-- Canvas 634 -->
-        <div class="card"><img src="abstract-634.jpg" alt="Canvas 634" class="card-img"><div class="card-body"><h3>Abstract Canvas #634</h3><p>Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p><a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">Buy on Spring Store</a></div></div>
-        <!-- Canvas 579 -->
-        <div class="card"><img src="abstract-579.jpg" alt="Canvas 579" class="card-img"><div class="card-body"><h3>Abstract Canvas #579</h3><p>Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p><a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">Buy on Spring Store</a></div></div>
-        <!-- Canvas 580 -->
-        <div class="card"><img src="abstract-580.jpg" alt="Canvas 580" class="card-img"><div class="card-body"><h3>Abstract Canvas #580</h3><p>Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p><a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">Buy on Spring Store</a></div></div>
-        <!-- Canvas 575 -->
-        <div class="card"><img src="abstract-575.jpg" alt="Canvas 575" class="card-img"><div class="card-body"><h3>Abstract Canvas #575</h3><p>Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p><a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">Buy on Spring Store</a></div></div>
-    </div>
-
-    <!-- More Products CTA -->
-    <section class="bottom-cta" style="text-align: center; margin-top: 3rem;">
-        <h3>Looking for More Artwork & Apparel?</h3>
-        <p>Explore our complete catalog of high-quality canvas prints, custom apparel, and aesthetic home decor options.</p>
-        <a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn" style="display: inline-block; padding: 12px 40px; margin-top: 10px;">Explore All Products on Spring Store ➔</a>
+    <section class="hero">
+        <h1>Elevate Your Space with Modern Abstract Art</h1>
+        <p>Discover high-quality abstract wall art, modern canvas prints, and contemporary aesthetic designs.</p>
     </section>
-</main>
+
+    <main class="container">
+        <!-- YouTube Section -->
+        <h2 class="section-title">Latest Videos from NRS Creation</h2>
+        <div class="video-grid">
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/U_VbImyvG5U" frameborder="0" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0" frameborder="0" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/hiFjLHz9qKE" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+
+        <hr style="margin: 4rem 0;">
+
+        <!-- Gallery Section -->
+        <h2 class="section-title">Featured Wall Art Collection</h2>
+        <div class="gallery-grid">
+            <!-- (আপনার আগের কার্ড কোডগুলো এখানে রাখুন) -->
+        </div>
+
+        <!-- About & Contact Section -->
+        <!-- (আপনার আগের About ও Contact কোডগুলো এখানে রাখুন) -->
+    </main>
+
+    <script>
+        // আপনার কন্টাক্ট ফর্মের script টি এখানে থাকবে
+    </script>
+</body>
+</html>
         /* About Creator Section Styles */
         .about-section {
             margin-top: 4rem;
