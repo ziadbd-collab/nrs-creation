@@ -184,74 +184,127 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-       <main class="container" id="gallery">
-    <h2 class="section-title">Featured Wall Art Collection</h2>
-    <div class="gallery-grid">
-        
-        <!-- Abstract Canvas #634 -->
-        <div class="card">
-            <img src="abstract-634.jpg" alt="Abstract Canvas #634" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Abstract Canvas #634</h3>
-                <p class="card-desc">Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
-                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="buy-btn">Buy on Spring Store</a>
-            </div>
-        </div>
+        /* Main Gallery Section */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
 
-        <!-- Abstract Canvas #579 -->
-        <div class="card">
-            <img src="abstract-579.jpg" alt="Abstract Canvas #579" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Abstract Canvas #579</h3>
-                <p class="card-desc">Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
-                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="buy-btn">Buy on Spring Store</a>
-            </div>
-        </div>
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+        }
 
-        <!-- Abstract Canvas #580 -->
-        <div class="card">
-            <img src="abstract-580.jpg" alt="Abstract Canvas #580" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Abstract Canvas #580</h3>
-                <p class="card-desc">Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
-                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="buy-btn">Buy on Spring Store</a>
-            </div>
-        </div>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
 
-        <!-- Abstract Canvas #575 -->
-        <div class="card">
-            <img src="abstract-575.jpg" alt="Abstract Canvas #575" class="card-img">
-            <div class="card-body">
-                <h3 class="card-title">Abstract Canvas #575</h3>
-                <p class="card-desc">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
-                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="buy-btn">Buy on Spring Store</a>
-            </div>
-        </div>
+        /* Product Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
 
-    </div>
-</main>
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .buy-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Bottom CTA Section */
+        .bottom-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .bottom-cta h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .bottom-cta p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .full-store-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .full-store-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+        }
 
         /* About Creator Section Styles */
-       <!-- YouTube Link Section -->
-<div style="margin-top: 20px; text-align: center;">
-    <a href="https://www.youtube.com/@NRScreation-tw9mr" target="_blank" style="text-decoration: none; color: #ff0000; font-weight: bold; font-size: 1.2rem;">
-        ▶ Subscribe to NRS Creation YouTube Channel ↗
-    </a>
-</div>
-        <section class="about-section">
-    <h3>About the Founder & Creator</h3>
-    <p><strong>Shaikh Ziadul Haque</strong> is a versatile creative professional, author, playwright, 3D artist, and digital entrepreneur. He merges artistic storytelling with modern digital craftsmanship through <strong>NRS Creation</strong>.</p>
-    
-    <div class="about-grid">
-        <div><h4>🎭 Literary & Theatre</h4><p>Author of <em>We Are Responsible</em> and the Inspirational book series.</p></div>
-        <div><h4>🎨 3D & Digital Art</h4><p>Skilled in Blender. Founder of NRS Creation producing abstract wall art and VFX.</p></div>
-        <div>
-            <h4>🎬 Video Content</h4>
-            <p>Visit our channel for 3D breakdowns and animations.</p>
-            <a href="https://www.youtube.com/@NRScreation-tw9mr" target="_blank" style="color: #6366f1; text-decoration: none;">Watch on YouTube ➔</a>
-        </div>
-    </div>
-</section>
         .about-section {
             margin-top: 4rem;
             padding: 3.5rem 2.5rem;
@@ -451,44 +504,51 @@
         </div>
     </section>
 
-   <div class="gallery-grid">
-    <!-- আপনার রিপোজিটরিতে থাকা ইমেজগুলো ব্যবহার করা হয়েছে -->
-    <div class="card">
-        <img src="abstract-634.jpg" alt="Abstract Canvas 634" class="card-img">
-        <div class="card-body">
-            <h3>Abstract Canvas 634</h3>
-            <p>Modern vibrant abstract canvas.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">View Project</a>
-        </div>
-    </div>
-    
-    <div class="card">
-        <img src="abstract-579.jpg" alt="Abstract Canvas 579" class="card-img">
-        <div class="card-body">
-            <h3>Abstract Canvas 579</h3>
-            <p>Minimalist texture composition.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">View Project</a>
-        </div>
-    </div>
+    <!-- Gallery Section -->
+    <main class="container" id="gallery">
+        <h2 class="section-title">Featured Wall Art Collection</h2>
+        
+        <div class="gallery-grid">
+            <!-- Product 1 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-634.jpg" alt="Vibrant Modern Abstract Canvas Print - NRS Creation Wall Art #634" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #634</h3>
+                    <p class="card-desc">Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-634?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
 
-    <div class="card">
-        <img src="abstract-580.jpg" alt="Abstract Canvas 580" class="card-img">
-        <div class="card-body">
-            <h3>Abstract Canvas 580</h3>
-            <p>High-contrast geometric art.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">View Project</a>
-        </div>
-    </div>
+            <!-- Product 2 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-579.jpg" alt="Minimalist Geometric Abstract Canvas Wall Art - NRS Creation #579" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #579</h3>
+                    <p class="card-desc">Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-579?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
 
-    <div class="card">
-        <img src="abstract-575.jpg" alt="Abstract Canvas 575" class="card-img">
-        <div class="card-body">
-            <h3>Abstract Canvas 575</h3>
-            <p>Elegant fluid stroke art.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com" class="buy-btn">View Project</a>
+            <!-- Product 3 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-580.jpg" alt="High Contrast Contemporary Abstract Artwork - NRS Creation #580" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #580</h3>
+                    <p class="card-desc">Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-580?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-575.jpg" alt="Elegant Fluid Stroke Abstract Art Canvas Print - NRS Creation #575" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #575</h3>
+                    <p class="card-desc">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-575?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <!-- Bottom CTA Banner -->
         <div class="bottom-cta">
