@@ -24,3 +24,646 @@
     <!-- Structured Data / Schema Markup for Google Search (JSON-LD) -->
     <script type="application/ld+json">
     {
+      "@context": "https://schema.org/",
+      "@type": "ArtGallery",
+      "name": "NRS Creation",
+      "image": "http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/nrs_logo.png",
+      "description": "Premium Abstract Wall Art Collection and modern canvas prints by NRS Creation.",
+      "url": "http://nrs-wallart-bucket.s3-website-us-east-1.amazonaws.com/"
+    }
+    </script>
+
+    <style>
+        /* Base Styles & CSS Variables */
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: #0b0f19;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Reduced Logo Height for a cleaner navbar */
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(1.2) contrast(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: var(--accent-color);
+            font-weight: 600;
+            padding: 0.65rem 1.4rem;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-link:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section with Motion Graphics Effect */
+        .hero {
+            background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81, #0f172a, #1e1b4b);
+            background-size: 400% 400%;
+            animation: heroGradientMotion 12s ease infinite;
+            color: #ffffff;
+            text-align: center;
+            padding: 5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Motion animation keyframes */
+        @keyframes heroGradientMotion {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero .cta-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .hero .secondary-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero .secondary-btn:hover {
+            border-color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Gallery Section */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Product Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .buy-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Bottom CTA Section */
+        .bottom-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .bottom-cta h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .bottom-cta p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .full-store-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .full-store-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+        }
+
+        /* About Creator Section Styles */
+        .about-section {
+            margin-top: 4rem;
+            padding: 3.5rem 2.5rem;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-intro {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-card {
+            background: var(--bg-color);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .about-card h4 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .about-links {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .about-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .about-links a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Contact Us Section Styles */
+        .contact-section {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-section h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section p.contact-desc {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .contact-submit-btn {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .contact-submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .status-msg {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            font-weight: 500;
+        }
+
+        .status-msg.success {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-msg.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0f19;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-container">
+                <img src="nrs_logo.png" alt="NRS Creation - Abstract Wall Art & Digital Design Studio Logo" class="logo-img">
+            </a>
+            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="nav-link">Visit Spring Store ↗</a>
+        </div>
+    </header>
+
+    <!-- Hero Section with Motion Effect -->
+    <section class="hero">
+        <h1>Elevate Your Space with Modern Abstract Art</h1>
+        <p>Discover high-quality abstract wall art, modern canvas prints, and contemporary aesthetic designs curated for living rooms, offices, and home decor.</p>
+        <div class="hero-buttons">
+            <a href="#gallery" class="secondary-btn">Featured Picks</a>
+            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="cta-btn">Browse Full Store ↗</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <main class="container" id="gallery">
+        <h2 class="section-title">Featured Wall Art Collection</h2>
+        
+        <div class="gallery-grid">
+            <!-- Product 1 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-634.jpg" alt="Vibrant Modern Abstract Canvas Print - NRS Creation Wall Art #634" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #634</h3>
+                    <p class="card-desc">Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-634?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-579.jpg" alt="Minimalist Geometric Abstract Canvas Wall Art - NRS Creation #579" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #579</h3>
+                    <p class="card-desc">Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-579?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-580.jpg" alt="High Contrast Contemporary Abstract Artwork - NRS Creation #580" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #580</h3>
+                    <p class="card-desc">Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-580?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="card">
+                <img src="https://nrs-wallart-bucket.s3.us-east-1.amazonaws.com/abstract-575.jpg" alt="Elegant Fluid Stroke Abstract Art Canvas Print - NRS Creation #575" class="card-img">
+                <div class="card-body">
+                    <h3 class="card-title">Abstract Canvas #575</h3>
+                    <p class="card-desc">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
+                    <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-575?product=623&variation=102506" target="_blank" class="buy-btn">Buy on Spring Store</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA Banner -->
+        <div class="bottom-cta">
+            <h3>Looking for More Artwork & Apparel?</h3>
+            <p>Explore our complete catalog of high-quality canvas prints, custom apparel, and aesthetic home decor options.</p>
+            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="full-store-btn">Explore All Products on Spring Store ➔</a>
+        </div>
+
+        <!-- About Creator Section -->
+        <div class="about-section" id="about">
+            <h3>About the Founder & Creator</h3>
+            <p class="about-intro">
+                <strong>Shaikh Ziadul Haque</strong> is a versatile creative professional, author, playwright, 3D artist, and digital entrepreneur[cite: 2]. Driven by an innovative perspective and a deep sense of social responsibility, he merges artistic storytelling with modern digital craftsmanship through <strong>NRS Creation</strong>[cite: 2].
+            </p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4>🎭 Literary & Theatre</h4>
+                    <p>Active member of <em>Aranyak Natyadal</em>[cite: 2]. Playwright of acclaimed plays like <em>Alpin</em>, <em>Badsha</em>, and English adaptations <em>Hawking is on Mars</em> and <em>Connected in Logic</em>[cite: 2]. Author of <em>We Are Responsible</em> and the Inspirational book series[cite: 2].</p>
+                </div>
+
+                <div class="about-card">
+                    <h4>🎨 3D & Digital Art</h4>
+                    <p>Skilled in 3D modeling, animation, and video editing using Blender[cite: 2]. Founder of <strong>NRS Creation</strong>, producing abstract wall art, modern canvas prints, and visual effects[cite: 2].</p>
+                </div>
+
+                <div class="about-card">
+                    <h4>🌍 Social Activism</h4>
+                    <p>Online member of <em>Transparency International</em> advocating for social justice[cite: 2]. Currently working on establishing the <em>Harun Nouri Foundation</em> for humanitarian initiatives[cite: 2].</p>
+                </div>
+            </div>
+
+            <div class="about-links">
+                <a href="https://www.amazon.com/stores/author/B0BDDHZ8X7" target="_blank">Amazon Author Page ↗</a>
+                <a href="https://www.youtube.com/@nrscreation-tw9mr" target="_blank">NRS Creation YouTube ↗</a>
+                <a href="https://x.com/szhaque" target="_blank">X (@szhaque) ↗</a>
+            </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="contact-section" id="contact">
+            <h3>Get in Touch</h3>
+            <p class="contact-desc">Have questions about custom artwork or orders? Send us a message!</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="4" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="contact-submit-btn">Send Message</button>
+            </form>
+            <div id="statusMsg" class="status-msg"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Contact Form API Script -->
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('submitBtn');
+      const statusMsg = document.getElementById('statusMsg');
+      const apiUrl = "https://xix14aras3.execute-api.us-east-1.amazonaws.com/contact";
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
+      statusMsg.style.display = 'none';
+
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          statusMsg.className = "status-msg success";
+          statusMsg.innerText = "Thank you! Your message has been sent successfully.";
+          statusMsg.style.display = 'block';
+          document.getElementById('contactForm').reset();
+        } else {
+          throw new Error("Failed to send message");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        statusMsg.className = "status-msg error";
+        statusMsg.innerText = "Something went wrong. Please try again.";
+        statusMsg.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Message";
+      }
+    });
+    </script>
+
+</body>
+</html>
