@@ -1,717 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta name="google-site-verification" content="ftP3yqjQ418L_A6BTdEvIB7QxGecv7GSzrIVR8GgbJo" /> 
-    <!-- Basic SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="ftP3yqjQ418L_A6BTdEvIB7QxGecv7GSzrIVR8GgbJo" />
     <title>NRS Creation | 3D Art, Motion Graphics & Literary Works</title>
     
-    <!-- Meta Description: এটি গুগল সার্চের নিচে দেখাবে -->
-    <meta name="description" content="NRS Creation by Shaikh Ziadul Haque. Explore professional 3D modeling, VFX, motion graphics, and a collection of inspiring books including Abstract 100.">
-    
-    <!-- Keywords: এটি সার্চ ইঞ্জিনকে আপনার কাজের বিষয়বস্তু বুঝতে সাহায্য করে -->
-    <meta name="keywords" content="Shaikh Ziadul Haque, NRS Creation, 3D Artist, Author, Abstract 100, Blender 3D, VFX, Motion Graphics, Literary Works">
-    
-    <!-- Open Graph: এটি সোশ্যাল মিডিয়ায় শেয়ার করলে সুন্দর প্রিভিউ দেখাবে -->
-    <meta property="og:title" content="NRS Creation | Art & Literary Works">
-    <meta property="og:description" content="Discover professional 3D art and inspiring literary works by Shaikh Ziadul Haque.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ziadbd-collab.github.io/nrs-creation/">
+    <!-- Meta Data -->
+    <meta name="description" content="NRS Creation by Shaikh Ziadul Haque. Explore professional 3D modeling, VFX, motion graphics, and a collection of inspiring books.">
+    <meta name="keywords" content="Shaikh Ziadul Haque, NRS Creation, 3D Artist, Author, Blender 3D, VFX, Motion Graphics">
 
-    <!-- Favicon -->
-    <link rel="icon" href="nrs_logo.png" type="image/png">
-
-    <!-- আপনার বর্তমান সিএসএস স্টাইলগুলো এখানে থাকবে -->
-</head>
     <style>
-        /* Base Styles & CSS Variables */
+        /* Base Styles */
         :root {
             --primary-color: #0f172a;
             --accent-color: #6366f1;
             --accent-hover: #4f46e5;
             --bg-color: #f8fafc;
-            --card-bg: #ffffff;
             --text-dark: #1e293b;
             --text-muted: #64748b;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            text-align: left;
-        }
+        /* Navbar & Header */
+        header { background-color: #0b0f19; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-link { text-decoration: none; color: #ffffff; background-color: var(--accent-color); padding: 0.65rem 1.4rem; border-radius: 25px; font-weight: 600; }
 
-        /* Header / Navbar */
-        header {
-            background-color: #0b0f19;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        /* Sections */
+        .hero { background: linear-gradient(-45deg, #0b0f19, #312e81); color: #fff; text-align: center; padding: 6rem 1.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .section-title { text-align: center; font-size: 2.2rem; margin: 3rem 0; color: var(--primary-color); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
+        /* Cards & Components */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .video-wrapper iframe { position: absolute; width: 100%; height: 100%; border: none; }
+        .card { background: #fff; padding: 2rem; border-radius: 14px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; text-align: center; }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
 
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-            filter: brightness(1.2) contrast(1.1);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #ffffff;
-            background-color: var(--accent-color);
-            font-weight: 600;
-            padding: 0.65rem 1.4rem;
-            border-radius: 25px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
-        }
-
-        .nav-link:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        /* Hero Section with Motion Graphics Effect */
-        .hero {
-            background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81, #0f172a, #1e1b4b);
-            background-size: 400% 400%;
-            animation: heroGradientMotion 12s ease infinite;
-            color: #ffffff;
-            text-align: center;
-            padding: 6rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes heroGradientMotion {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero .cta-btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .hero .cta-btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .hero .secondary-btn {
-            display: inline-block;
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .hero .secondary-btn:hover {
-            border-color: #fff;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Layout Container & Grids */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin: 3.5rem 0 2rem;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Component Cards */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 14px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 0.75rem 1.5rem;
-            background: var(--primary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background: #1e293b;
-        }
-
-        /* Banner CTA */
-        .catalog-cta {
-            text-align: center;
-            margin-top: 4rem;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            border: 1px solid #cbd5e1;
-        }
-
-        .catalog-cta h3 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .catalog-cta p {
-            color: var(--text-dark);
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .catalog-cta .btn-large {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 0.9rem 2.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .catalog-cta .btn-large:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        /* About Creator Section Styles */
-        .about-section {
-            margin-top: 5rem;
-            padding: 3.5rem 2.5rem;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .about-section h3 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .about-intro {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .about-card {
-            background: var(--bg-color);
-            padding: 1.8rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .about-card h4 {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .about-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .about-links {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .about-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-
-        .about-links a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        /* Contact Us Section Styles */
-        .contact-section {
-            margin-top: 5rem;
-            padding: 3rem 2rem;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid #e2e8f0;
-        }
-
-        .contact-section h3 {
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-section p.contact-desc {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .contact-submit-btn {
-            width: 100%;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 0.9rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .contact-submit-btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .status-msg {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 8px;
-            text-align: center;
-            display: none;
-            font-weight: 500;
-        }
-
-        .status-msg.success {
-            background-color: #dcfce7;
-            color: #166534;
-        }
-
-        .status-msg.error {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0b0f19;
-            color: #94a3b8;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 5rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-        }
+        footer { background-color: #0b0f19; color: #94a3b8; text-align: center; padding: 2.5rem; margin-top: 5rem; }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navbar Navigation -->
     <header>
         <div class="navbar">
-            <a href="#" class="logo-container">
-                <img src="nrs_logo.png" alt="NRS Creation Logo" class="logo-img">
-            </a>
+            <a href="#" class="logo-container"><img src="nrs_logo.png" alt="NRS" style="height: 50px;"></a>
             <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="nav-link">Visit Spring Store ↗</a>
         </div>
     </header>
 
-    <!-- Interactive Hero Section -->
     <section class="hero">
         <h1>NRS Creation</h1>
-        <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals to transform contemporary aesthetic spaces.</p>
-        <div class="hero-buttons">
-            <a href="#gallery" class="cta-btn">Explore Artwork</a>
-            <a href="#videos" class="secondary-btn">Watch Latest Videos</a>
-        </div>
+        <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals.</p>
     </section>
-<!-- Services Section -->
-<section id="services" style="padding: 50px 20px; background-color: #f9f9f9; text-align: center;">
-    <h2 style="font-size: 2.5em; margin-bottom: 30px;">Our Services</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        
-        <!-- 3D Modeling Card -->
-        <div style="background: white; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #333;">3D Modeling</h3>
-            <p style="color: #666;">Precision product design, architectural visualization, and game-ready assets.</p>
-        </div>
 
-        <!-- Animation Card -->
-        <div style="background: white; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #333;">Animation</h3>
-            <p style="color: #666;">Engaging logo animations, motion graphics, and character animation for your brand.</p>
-        </div>
-
-        <!-- VFX Card -->
-        <div style="background: white; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #333;">VFX & Compositing</h3>
-            <p style="color: #666;">Cinematic visual effects, motion tracking, and professional compositing services.</p>
-        </div>
-
-    </div>
-    
-    <!-- Contact & CTA Section -->
-    <div style="margin-top: 40px;">
-        <h3 style="margin-bottom: 15px;">Ready to start your project?</h3>
-        <p style="margin-bottom: 20px;">Contact us: <strong>01921473322</strong></p>
-        <a href="mailto:info.nrscreation@gmail.com" style="padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Email Us Now</a>
-    </div>
-</section>
-    <!-- Main Content Layout Section -->
     <main class="container">
+        <!-- Services -->
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid">
+            <div class="card"><h3>3D Modeling</h3><p>Precision product design and architectural visualization.</p></div>
+            <div class="card"><h3>Animation</h3><p>Engaging motion graphics and character animation.</p></div>
+            <div class="card"><h3>VFX & Compositing</h3><p>Cinematic visual effects and professional compositing.</p></div>
+        </div>
 
-        <!-- YouTube Video Showcase Grid Section -->
+        <!-- Videos -->
         <h2 class="section-title" id="videos">Latest Videos</h2>
         <div class="grid">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/U_VbImyvG5U" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/hiFjLHz9qKE" allowfullscreen></iframe>
-            </div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/U_VbImyvG5U"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0"></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/hiFjLHz9qKE"></iframe></div>
         </div>
 
-        <!-- Premium Featured Wall Art Grid Collection Section -->
-        <h2 class="section-title" id="gallery">Featured Wall Art Collection</h2>
-       <!-- Featured Wall Art Grid -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRS Creation | Art Gallery</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f8fafc; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
-        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #6366f1; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h2 style="text-align: center; margin: 40px 0;">Featured Wall Art Collection</h2>
-    
-    <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-        
-        <!-- Abstract Canvas #634 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-634.jpg" alt="Abstract Canvas #634" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #634</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-634?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
+        <!-- Gallery -->
+        <h2 class="section-title" id="gallery">Featured Wall Art</h2>
+        <div class="grid">
+            <!-- Add your image cards here using the same structure as above -->
         </div>
 
-        <!-- Abstract Canvas #579 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-579.jpg" alt="Abstract Canvas #579" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #579</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-579?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
-
-        <!-- Abstract Canvas #580 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-580.jpg" alt="Abstract Canvas #580" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #580</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-580?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
-
-        <!-- Abstract Canvas #575 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-575.jpg" alt="Abstract Canvas #575" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #575</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-575?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
-
-    </div>
-</div>
-
-</body>
-</html>
-
-        <!-- Call To Action Complete Catalog Banner Block -->
-        <div class="catalog-cta">
-            <h3>Looking for More Artwork & Apparel?</h3>
-            <p>Explore our complete catalog of high-quality canvas prints, custom apparel, and aesthetic home decor options.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn-large">Explore All Products on Spring Store ➔</a>
-        </div>
-
-        <!-- About Creator Core Portfolio Showcase Section -->
-        <section class="about-section">
-            <h3>About The Agency</h3>
-            <p class="about-intro">NRS Creation is a multi-disciplinary design and multimedia studio specializing in premium 3D modeling, high-end motion graphics simulations, VFX workflows, and luxury custom interior artwork assets.</p>
-            
-            <div class="about-grid">
-                <div class="about-card">
-                    <h4><span>🎨</span> Abstract Fine Arts</h4>
-                    <p>Creating highly conceptual, modern abstract wall decor and premium high-contrast dynamic textures tailored for bespoke homes.</p>
-                </div>
-                <div class="about-card">
-                    <h4><span>📐</span> 3D Modeling & VFX</h4>
-                    <p>Advanced Blender workflows incorporating deep Geometry Nodes engineering, physics simulation pipelines, and stunning cinematic edits.</p>
-                </div>
-                <div class="about-card">
-                    <h4><span>🚀</span> Digital Agency Ecosystem</h4>
-                    <p>Driving digital production, original literature architecture, and unique retail brands under a unified, premium umbrella brand.</p>
-                </div>
-            </div>
-
-            <div class="about-links">
-                <a href="https://my-store-1027b4a.creator-spring.com" target="_blank">Spring Marketplace</a>
-                <a href="#videos">YouTube Portfolio</a>
-                <a href="#gallery">Digital Gallery</a>
+        <!-- Literary Works -->
+        <section class="section-title" id="literary-works">
+            <h2>Literary Works</h2>
+            <div class="grid" style="margin-top: 2rem;">
+                <div class="card"><h4>📖 Abstract 100</h4><p>A compelling exploration of abstract concepts.</p></div>
+                <div class="card"><h4>✨ Inspirational Series</h4><p>Curated series on remarkable figures.</p></div>
             </div>
         </section>
-<!-- Literary Works Section -->
-<section class="about-section" id="literary-works">
-    <h3>Literary Works</h3>
-    <p class="about-intro">As an author, I translate complex ideas into engaging narratives that inspire and challenge perspectives. Below are my published books.</p>
-    
-    <div class="about-grid">
-        <div class="about-card">
-            <h4>📖 Abstract 100</h4>
-            <p>A compelling exploration of abstract concepts and contemporary thought, designed to challenge the reader's perspective.</p>
-            <a href="https://www.amazon.com/dp/B0GF7BF4ML?binding=hardcover" target="_blank" style="color: var(--accent-color); font-weight: bold;">View Hardcover ↗</a>
-        </div>
-        <div class="about-card">
-            <h4>✨ Inspirational Series</h4>
-            <p>A curated series focusing on the lives and achievements of remarkable figures who have shaped our history.</p>
-            <a href="https://www.amazon.com/dp/B0BLYFST27?binding=hardcover" target="_blank" style="color: var(--accent-color); font-weight: bold;">View Hardcover ↗</a>
-        </div>
-    </div>
-    
-    <div class="about-links" style="margin-top: 20px;">
-        <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank" class="btn-large" style="padding: 10px 25px; text-decoration: none;">View Full Author Page</a>
-    </div>
-</section>    
-    <div class="about-links" style="margin-top: 20px;">
-        <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank" class="btn-large" style="padding: 10px 25px; text-decoration: none;">View Full Author Page</a>
-    </div>
-</section>
-        <!-- Dynamic Secure Contact Form Section -->
-        <section class="contact-section">
-            <h3>Get In Touch</h3>
-            <p class="contact-desc">Have a question about our products or want to discuss a custom design project? Drop us a line below.</p>
-            
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" required placeholder="john@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" required placeholder="Tell us about your project or inquiry..."></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="contact-submit-btn">Send Message</button>
-                <div id="statusMsg" class="status-msg"></div>
-            </form>
-        </section>
 
+        <!-- Final Contact -->
+        <section style="text-align: center; padding: 40px;">
+            <h3>Want to discuss a project?</h3>
+            <a href="mailto:info.nrscreation@gmail.com" style="display:inline-block; margin-top:20px; padding: 15px 30px; background-color: #6366f1; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Email Us Now</a>
+        </section>
     </main>
 
-    <!-- Global App Footer Section -->
     <footer>
         <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
     </footer>
 
-  <!-- Contact Form Section -->
-<section class="contact-section" id="contact">
-    <h3>Get In Touch</h3>
-    <p class="contact-desc">Have a question or want to discuss a custom project? Drop us a line below.</p>
-    
-   <section class="contact-section" id="contact" style="text-align: center; padding: 40px;">
-    <h3>Want to discuss a project?</h3>
-    <p>Click below to email me directly:</p>
-    <a href="mailto:info.nrscreation@gmail.com?subject=New%20Project%20Inquiry" 
-       style="padding: 15px 30px; background-color: #6366f1; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 20px;">
-       Email info.nrscreation@gmail.com
-    </a>
-</section>
+</body>
+</html>
