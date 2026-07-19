@@ -702,53 +702,21 @@
         <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
     </footer>
 
-    <!-- Contact Form Serverless API Script -->
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
+   <!-- Contact Form (সহজ পদ্ধতি - Formspree) -->
+        <section class="contact-section">
+            <h3>Get In Touch</h3>
+            <form action="https://formspree.io/f/mpwzqjkb" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Describe your project..." required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
 
-      const submitBtn = document.getElementById('submitBtn');
-      const statusMsg = document.getElementById('statusMsg');
-      const apiUrl = "https://xix14aras3.execute-api.us-east-1.amazonaws.com/contact";
-
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Sending...";
-      statusMsg.style.display = 'none';
-
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-      };
-
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-          statusMsg.className = "status-msg success";
-          statusMsg.innerText = "Thank you! Your message has been sent successfully.";
-          statusMsg.style.display = 'block';
-          document.getElementById('contactForm').reset();
-        } else {
-          throw new Error("Failed to send message");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        statusMsg.className = "status-msg error";
-        statusMsg.innerText = "Something went wrong. Please try again.";
-        statusMsg.style.display = 'block';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send Message";
-      }
-    });
-    </script>
+    <footer>
+        <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
