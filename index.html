@@ -29,15 +29,16 @@
 
     <style>
 /* কিউব কন্টেইনার যেন হিরো সেকশনের বাইরে না যায় */
-.cube-container {
+/* বেসিক কিউব ডিজাইন (সাদা কালার ও গ্লাস ইফেক্ট) */
+.cube {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0; /* টেক্সটের পেছনে রাখার জন্য */
-    pointer-events: none; /* যাতে ক্লিক করা না যায় */
+    background: rgba(255, 255, 255, 0.12); /* ব্যাকগ্রাউন্ডের সাদা আভা একটু বাড়িয়ে দেওয়া হয়েছে */
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* বর্ডারটি আরও স্পষ্ট সাদা করা হয়েছে */
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1); /* হালকা সাদা গ্লো ইফেক্ট */
+    border-radius: 12px;
+    bottom: -150px; /* নিচ থেকে শুরু হবে */
+    animation: floatCube infinite linear;
 }
 
 /* হিরো সেকশনের টেক্সট এবং বাটনগুলো যেন কিউবের উপরে থাকে */
