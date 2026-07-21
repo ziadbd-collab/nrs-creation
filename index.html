@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRS Creation | Art & Video Gallery</title>
+    <title>NRS Creation | 3D Art, Motion Graphics & Literary Works</title>
     
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZXT4MCH0P"></script>
     <script>
       window.dataLayer = window.dataLayer || function(){dataLayer.push(arguments);};
       gtag('js', new Date());
-
       gtag('config', 'G-NZXT4MCH0P');
     </script>
- <meta name="google-site-verification" content="ftP3yqjQ418L_A6BTdEvIB7QxGecv7GSzrIVR8GgbJo" /> 
+    <meta name="google-site-verification" content="ftP3yqjQ418L_A6BTdEvIB7QxGecv7GSzrIVR8GgbJo" />  
+    
     <!-- Basic SEO -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRS Creation | 3D Art, Motion Graphics & Literary Works</title>
-    
-    <!-- Meta Description: এটি গুগল সার্চের নিচে দেখাবে -->
     <meta name="description" content="NRS Creation by Shaikh Ziadul Haque. Explore professional 3D modeling, VFX, motion graphics, and a collection of inspiring books including Abstract 100.">
-    
-    <!-- Keywords: এটি সার্চ ইঞ্জিনকে আপনার কাজের বিষয়বস্তু বুঝতে সাহায্য করে -->
     <meta name="keywords" content="Shaikh Ziadul Haque, NRS Creation, 3D Artist, Author, Abstract 100, Blender 3D, VFX, Motion Graphics, Literary Works">
     
-    <!-- Open Graph: এটি সোশ্যাল মিডিয়ায় শেয়ার করলে সুন্দর প্রিভিউ দেখাবে -->
+    <!-- Open Graph -->
     <meta property="og:title" content="NRS Creation | Art & Literary Works">
     <meta property="og:description" content="Discover professional 3D art and inspiring literary works by Shaikh Ziadul Haque.">
     <meta property="og:type" content="website">
@@ -34,8 +27,6 @@
     <!-- Favicon -->
     <link rel="icon" href="nrs_logo.png" type="image/png">
 
-    <!-- আপনার বর্তমান সিএসএস স্টাইলগুলো এখানে থাকবে -->
-</head>
     <style>
         /* Base Styles & CSS Variables */
         :root {
@@ -62,7 +53,6 @@
             text-align: left;
         }
 
-        /* Header / Navbar */
         header {
             background-color: #0b0f19;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -114,7 +104,6 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section with Motion Graphics Effect */
         .hero {
             background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81, #0f172a, #1e1b4b);
             background-size: 400% 400%;
@@ -153,15 +142,18 @@
             flex-wrap: wrap;
         }
 
-        .hero .cta-btn {
+        .hero .cta-btn, .hero .secondary-btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
             padding: 0.8rem 2rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
+        }
+
+        .hero .cta-btn {
+            background-color: var(--accent-color);
+            color: #fff;
         }
 
         .hero .cta-btn:hover {
@@ -170,15 +162,9 @@
         }
 
         .hero .secondary-btn {
-            display: inline-block;
             background-color: transparent;
             color: #fff;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
         }
 
         .hero .secondary-btn:hover {
@@ -186,7 +172,6 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Layout Container & Grids */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -198,7 +183,6 @@
             font-size: 2.2rem;
             margin: 3.5rem 0 2rem;
             color: var(--primary-color);
-            position: relative;
         }
 
         .grid {
@@ -207,10 +191,9 @@
             gap: 2rem;
         }
 
-        /* Component Cards */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 12px;
@@ -272,7 +255,6 @@
             background: #1e293b;
         }
 
-        /* Banner CTA */
         .catalog-cta {
             text-align: center;
             margin-top: 4rem;
@@ -311,7 +293,6 @@
             transform: translateY(-1px);
         }
 
-        /* About Creator Section Styles */
         .about-section {
             margin-top: 5rem;
             padding: 3.5rem 2.5rem;
@@ -360,12 +341,6 @@
             gap: 0.5rem;
         }
 
-        .about-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
         .about-links {
             text-align: center;
             padding-top: 1.5rem;
@@ -380,15 +355,8 @@
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s ease;
         }
 
-        .about-links a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        /* Contact Us Section Styles */
         .contact-section {
             margin-top: 5rem;
             padding: 3rem 2rem;
@@ -399,95 +367,15 @@
             margin-left: auto;
             margin-right: auto;
             border: 1px solid #e2e8f0;
-        }
-
-        .contact-section h3 {
             text-align: center;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
         }
 
-        .contact-section p.contact-desc {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .contact-submit-btn {
-            width: 100%;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 0.9rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .contact-submit-btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .status-msg {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 8px;
-            text-align: center;
-            display: none;
-            font-weight: 500;
-        }
-
-        .status-msg.success {
-            background-color: #dcfce7;
-            color: #166534;
-        }
-
-        .status-msg.error {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-
-        /* Footer */
         footer {
             background-color: #0b0f19;
             color: #94a3b8;
             text-align: center;
             padding: 2.5rem 1rem;
             margin-top: 5rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -512,38 +400,26 @@
             <a href="#videos" class="secondary-btn">Watch Latest Videos</a>
         </div>
     </section>
-<!-- Services Section -->
-<section id="services" style="padding: 50px 20px; background-color: #f9f9f9; text-align: center;">
-    <h2 style="font-size: 2.5em; margin-bottom: 30px;">Our Services</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        
-        <!-- 3D Modeling Card -->
-        <div style="background: white; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #333;">3D Modeling</h3>
-            <p style="color: #666;">Precision product design, architectural visualization, and game-ready assets.</p>
-        </div>
 
-        <!-- Animation Card -->
-        <div style="background: white; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #333;">Animation</h3>
-            <p style="color: #666;">Engaging logo animations, motion graphics, and character animation for your brand.</p>
+    <!-- Services Section -->
+    <section id="services" class="container" style="text-align: center;">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>3D Modeling</h3>
+                <p>Precision product design, architectural visualization, and game-ready assets.</p>
+            </div>
+            <div class="card">
+                <h3>Animation</h3>
+                <p>Engaging logo animations, motion graphics, and character animation for your brand.</p>
+            </div>
+            <div class="card">
+                <h3>VFX & Compositing</h3>
+                <p>Cinematic visual effects, motion tracking, and professional compositing services.</p>
+            </div>
         </div>
+    </section>
 
-        <!-- VFX Card -->
-        <div style="background: white; padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #333;">VFX & Compositing</h3>
-            <p style="color: #666;">Cinematic visual effects, motion tracking, and professional compositing services.</p>
-        </div>
-
-    </div>
-    
-    <!-- Contact & CTA Section -->
-    <div style="margin-top: 40px;">
-        <h3 style="margin-bottom: 15px;">Ready to start your project?</h3>
-        <p style="margin-bottom: 20px;">Contact us: <strong>+8801921473322</strong></p>
-        <a href="mailto:info.nrscreation@gmail.com" style="padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Email Us Now</a>
-    </div>
-</section>
     <!-- Main Content Layout Section -->
     <main class="container">
 
@@ -561,85 +437,57 @@
             </div>
         </div>
 
-        <!-- Premium Featured Wall Art Grid Collection Section -->
+        <!-- Featured Wall Art Grid Collection Section -->
         <h2 class="section-title" id="gallery">Featured Wall Art Collection</h2>
-       <!-- Featured Wall Art Grid -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRS Creation | Art Gallery</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f8fafc; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
-        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #6366f1; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
-    </style>
-</head>
-<body>
+        <div class="grid">
+            <!-- Abstract Canvas #634 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-634.jpg" alt="Abstract Canvas #634" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Abstract Canvas #634</h3>
+                <p>Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
+                <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-634?product=623&variation=102506" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
 
-<div class="container">
-   
-    
-    <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-        
-        <!-- Abstract Canvas #634 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-634.jpg" alt="Abstract Canvas #634" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #634</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Modern vibrant abstract canvas print featuring energetic color compositions for home living room decor.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-634?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
+            <!-- Abstract Canvas #579 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-579.jpg" alt="Abstract Canvas #579" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Abstract Canvas #579</h3>
+                <p>Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
+                <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-579?product=623&variation=102506" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
 
-        <!-- Abstract Canvas #579 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-579.jpg" alt="Abstract Canvas #579" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #579</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-579?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
+            <!-- Abstract Canvas #580 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-580.jpg" alt="Abstract Canvas #580" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Abstract Canvas #580</h3>
+                <p>Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
+                <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-580?product=623&variation=102506" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
 
-        <!-- Abstract Canvas #580 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-580.jpg" alt="Abstract Canvas #580" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #580</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-580?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
+            <!-- Abstract Canvas #575 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-575.jpg" alt="Abstract Canvas #575" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Abstract Canvas #575</h3>
+                <p>Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
+                <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-575?product=623&variation=102506" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
+         
+            <!-- Abstract Canvas #472 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-472.jpg" alt="Abstract Canvas #472" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Abstract Canvas #472</h3>
+                <p>Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
+                <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-472?product=623&variation=102506" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
+         
+            <!-- Abstract Canvas #554 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-554.jpg" alt="Abstract Canvas #554" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>Abstract Canvas #554</h3>
+                <p>Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
+                <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-554?product=623&variation=102506" target="_blank" class="btn">Buy on Spring Store</a>
+            </div>
         </div>
-
-        <!-- Abstract Canvas #575 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-575.jpg" alt="Abstract Canvas #575" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #575</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-575?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
-     
-        <!-- Abstract Canvas #472 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-472.jpg" alt="Abstract Canvas #472" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #472</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-472?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
-     
-        <!-- Abstract Canvas #554 -->
-        <div class="card" style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center;">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-554.jpg" alt="Abstract Canvas #554" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">Abstract Canvas #554</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
-            <a href="https://my-store-1027b4a.creator-spring.com/listing/abstract-554?product=623&variation=102506" target="_blank" style="display: block; background: #0f172a; color: #fff; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: 600;">Buy on Spring Store</a>
-        </div>
-
-    </div>
-</div>
-
-</body>
-</html>
 
         <!-- Call To Action Complete Catalog Banner Block -->
         <div class="catalog-cta">
@@ -648,35 +496,33 @@
             <a href="https://my-store-1027b4a.creator-spring.com" target="_blank" class="btn-large">Explore All Products on Spring Store ➔</a>
         </div>
 
-<!-- Literary Works Section -->
-    <h2 style="margin: 50px 0 10px;">Literary Works</h2>
-    <p style="color: #64748b; font-size: 1rem; margin-bottom: 30px;">As an author, I translate complex ideas into engaging narratives that inspire and challenge perspectives. Below are my published books.</p>
-    
-    <div class="grid">
+        <!-- Literary Works Section -->
+        <h2 class="section-title">Literary Works</h2>
+        <p style="color: #64748b; font-size: 1rem; margin-bottom: 30px; text-align: center;">As an author, I translate complex ideas into engaging narratives that inspire and challenge perspectives. Below are my published books.</p>
         
-        <!-- Book 1: Abstract 100 -->
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-100.jpg" alt="Abstract 100" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">📖 Abstract 100</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">A compelling exploration of abstract concepts and contemporary thought, designed to challenge the reader's perspective.</p>
-            <a href="https://www.amazon.com/dp/B0GF7BF4ML?binding=hardcover" target="_blank" class="btn">View Hardcover ↗</a>
+        <div class="grid">
+            <!-- Book 1: Abstract 100 -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-100.jpg" alt="Abstract 100" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>📖 Abstract 100</h3>
+                <p>A compelling exploration of abstract concepts and contemporary thought, designed to challenge the reader's perspective.</p>
+                <a href="https://www.amazon.com/dp/B0GF7BF4ML?binding=hardcover" target="_blank" class="btn">View Hardcover ↗</a>
+            </div>
+
+            <!-- Book 2: Inspirational Series -->
+            <div class="card">
+                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/inspirational-series.jpg" alt="Inspirational Series" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <h3>✨ Inspirational Series</h3>
+                <p>A curated series focusing on the lives and achievements of remarkable figures who have shaped our history.</p>
+                <a href="https://www.amazon.com/dp/B0BLYFST27?binding=hardcover" target="_blank" class="btn">View Hardcover ↗</a>
+            </div>
+        </div>
+        
+        <div class="about-links" style="margin-top: 20px;">
+            <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank" class="btn-large" style="padding: 10px 25px; text-decoration: none; color: white; background: var(--accent-color); border-radius: 30px;">View Full Author Page</a>
         </div>
 
-        <!-- Book 2: Inspirational Series -->
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/inspirational-series.jpg" alt="Inspirational Series" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0;">✨ Inspirational Series</h3>
-            <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">A curated series focusing on the lives and achievements of remarkable figures who have shaped our history.</p>
-            <a href="https://www.amazon.com/dp/B0BLYFST27?binding=hardcover" target="_blank" class="btn">View Hardcover ↗</a>
-        </div>
-
-    </div>
-    
-    <div class="about-links" style="margin-top: 20px;">
-        <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank" class="btn-large" style="padding: 10px 25px; text-decoration: none;">View Full Author Page</a>
-    </div>
-
-        <!-- About Creator Core Portfolio Showcase Section -->
+        <!-- About The Agency Section -->
         <section class="about-section">
             <h3>About The Agency</h3>
             <p class="about-intro">NRS Creation is a multi-disciplinary design and multimedia studio specializing in premium 3D modeling, high-end motion graphics simulations, VFX workflows, and luxury custom interior artwork assets.</p>
@@ -703,20 +549,15 @@
             </div>
         </section>
 
-</section>
-        <!-- Contact Form Section -->
-<section class="contact-section" id="contact">
-    <h3>Get In Touch</h3>
-    <p class="contact-desc">Have a question or want to discuss a custom project? Drop us a line below.</p>
-    
-   <section class="contact-section" id="contact" style="text-align: center; padding: 40px;">
-    <h3>Want to discuss a project?</h3>
-    <p>Click below to email me directly:</p>
-    <a href="mailto:info.nrscreation@gmail.com?subject=New%20Project%20Inquiry" 
-       style="padding: 15px 30px; background-color: #6366f1; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 20px;">
-       Email info.nrscreation@gmail.com
-    </a>
-</section>
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h3>Want to discuss a project?</h3>
+            <p style="margin: 15px 0; color: var(--text-muted);">Phone: <strong>+8801921473322</strong></p>
+            <p style="color: var(--text-muted);">Click below to email me directly:</p>
+            <a href="mailto:info.nrscreation@gmail.com?subject=New%20Project%20Inquiry" class="btn-large" style="padding: 12px 25px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 20px;">
+                Email info.nrscreation@gmail.com
+            </a>
+        </section>
 
     </main>
 
@@ -725,4 +566,5 @@
         <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
     </footer>
 
- 
+</body>
+</html>
