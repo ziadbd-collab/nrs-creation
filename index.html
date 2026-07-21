@@ -28,6 +28,53 @@
     <link rel="icon" href="nrs_logo.png" type="image/png">
 
     <style>
+/* কিউব কন্টেইনার যেন হিরো সেকশনের বাইরে না যায় */
+.cube-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* টেক্সটের পেছনে রাখার জন্য */
+    pointer-events: none; /* যাতে ক্লিক করা না যায় */
+}
+
+/* হিরো সেকশনের টেক্সট এবং বাটনগুলো যেন কিউবের উপরে থাকে */
+.hero h1, .hero p, .hero-buttons {
+    position: relative;
+    z-index: 1;
+}
+
+/* বেসিক কিউব ডিজাইন (গ্লাস ইফেক্ট) */
+.cube {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    bottom: -150px; /* নিচ থেকে শুরু হবে */
+    animation: floatCube infinite linear;
+}
+
+/* বিভিন্ন সাইজ ও স্পিডের কিউব */
+.cube1 { width: 80px; height: 80px; left: 10%; animation-duration: 18s; }
+.cube2 { width: 45px; height: 45px; left: 25%; animation-duration: 12s; animation-delay: 2s; }
+.cube3 { width: 100px; height: 100px; left: 70%; animation-duration: 22s; animation-delay: 4s; }
+.cube4 { width: 60px; height: 60px; left: 85%; animation-duration: 15s; animation-delay: 0s; }
+.cube5 { width: 30px; height: 30px; left: 50%; animation-duration: 10s; animation-delay: 5s; }
+
+/* ভাসমান ও ঘোরার অ্যানিমেশন */
+@keyframes floatCube {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-800px) rotate(360deg);
+        opacity: 0; /* উপরে উঠার সাথে সাথে মিলিয়ে যাবে */
+    }
+}
         /* Base Styles & CSS Variables */
         :root {
             --primary-color: #0f172a;
@@ -393,6 +440,14 @@
 
     <!-- Interactive Hero Section -->
     <section class="hero">
+<!-- Floating Cubes Background -->
+<div class="cube-container">
+    <div class="cube cube1"></div>
+    <div class="cube cube2"></div>
+    <div class="cube cube3"></div>
+    <div class="cube cube4"></div>
+    <div class="cube cube5"></div>
+</div>
         <h1>NRS Creation</h1>
         <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals to transform contemporary aesthetic spaces.</p>
         <div class="hero-buttons">
