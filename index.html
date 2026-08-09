@@ -151,16 +151,45 @@
             transform: translateY(-1px);
         }
 
-        .hero {
-            background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81, #0f172a, #1e1b4b);
-            background-size: 400% 400%;
-            animation: heroGradientMotion 12s ease infinite;
-            color: #ffffff;
-            text-align: center;
-            padding: 6rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
+        .hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('nrs-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 100px 20px;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden; /* কিউবগুলো ব্যানার থেকে বাইরে চলে যাওয়া রোধ করতে */
+}
+        .hero-content {
+    position: relative;
+    z-index: 2; /* কিউবের উপরে লেখাগুলো দেখানোর জন্য */
+}
+
+/* Cube Container & Cubes Styling (উদাহরণস্বরূপ) */
+.cube-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cube {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* আলাদা আলাদা কিউবের সাইজ বা পজিশন দিতে চাইলে */
+.cube1 { width: 40px; height: 40px; top: 10%; left: 10%; }
+.cube2 { width: 60px; height: 60px; top: 70%; left: 80%; }
+.cube3 { width: 30px; height: 30px; top: 40%; left: 50%; }
+.cube4 { width: 50px; height: 50px; top: 80%; left: 20%; }
+.cube5 { width: 45px; height: 45px; top: 20%; left: 85%; }
 
         @keyframes heroGradientMotion {
             0% { background-position: 0% 50%; }
@@ -439,7 +468,7 @@
     </header>
 
    <!-- Interactive Hero Section -->
-    <section class="hero">
+    <section class="hero-banner">
 <!-- Floating Cubes Background -->
 <div class="cube-container">
     <div class="cube cube1"></div>
@@ -448,6 +477,9 @@
     <div class="cube cube4"></div>
     <div class="cube cube5"></div>
 </div>
+
+         <!-- Banner Content -->
+    <div class="hero-content">
         <h1>NRS Creation</h1>
         <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals to transform contemporary aesthetic spaces.</p>
         <div class="hero-buttons">
