@@ -3,146 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover in-depth book reviews, creative insights, and articles by Shaikh Ziadul Haque. Read our latest reviews on Amazon.">
-    <title>Shaikh Ziadul Haque - Official Blog & Creative Insights</title>
+    <title>Shaikh Ziadul Haque | Official Blog</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Combined CSS Styles -->
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --text-color: #1f2937;
-            --bg-color: #f9fafb;
-            --card-bg: #ffffff;
-            --border-color: #e5e7eb;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #111827;
             line-height: 1.6;
         }
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 2.5rem 1rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.4rem;
-            color: var(--text-color);
-            letter-spacing: -0.5px;
-        }
-        header p {
-            color: #4b5563;
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-        }
+
         .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .blog-post {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+
+        /* Header */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+            margin-bottom: 40px;
         }
-        .blog-post h2 {
-            margin-top: 0;
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
             color: #111827;
-            font-size: 1.5rem;
         }
-        .post-meta {
-            font-size: 0.875rem;
+
+        .logo p {
+            font-size: 0.85rem;
             color: #6b7280;
-            margin-bottom: 1rem;
         }
-        .post-content p {
-            margin-bottom: 1rem;
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
         }
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
+
+        .nav-links a {
             text-decoration: none;
+            color: #4b5563;
             font-weight: 500;
-            margin-top: 1rem;
-            transition: background-color 0.2s;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
-        .btn:hover {
-            background-color: #1d4ed8;
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
         }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.875rem;
+
+        /* Blog Intro */
+        .blog-intro {
+            margin-bottom: 30px;
+        }
+
+        .blog-intro h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px;
+        }
+
+        .intro-desc {
+            color: #4b5563;
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        /* Category Filters */
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4b5563;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #111827;
+            color: #ffffff;
+            border-color: #111827;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .featured-post h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            font-size: 0.85rem;
             color: #6b7280;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--card-bg);
-            margin-top: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .featured-post p {
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn, .card-link {
+            display: inline-block;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .read-more-btn:hover, .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Latest Articles Grid */
+        .latest-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .article-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            padding: 30px 0;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Shaikh Ziadul Haque</h1>
-        <p>Author & Creative Insights | Official Blog</p>
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Shaikh Ziadul Haque</h1>
+                <p>Author & Creative Insights</p>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">Blog</a>
+                <a href="https://www.amazon.com/dp/B0HHJNR713?ref_=ast_author_dp_rw&th=1&psc=1" target="_blank">Books</a>
+                <a href="#">About</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="container">
+    <!-- Main Content -->
+    <main class="main-content container">
         
-        <!-- প্রথম রিভিউ পোস্ট -->
-        <article class="blog-post">
+        <!-- Blog Hero Section -->
+        <section class="blog-intro">
+            <h2>Insights & Ideas</h2>
+            <p class="intro-desc">Thoughts on focus, mindfulness, creativity, and building a balanced digital life. Written for mindful readers.</p>
+        </section>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Book Reviews</button>
+            <button class="filter-btn">Productivity</button>
+            <button class="filter-btn">Mindfulness</button>
+        </div>
+
+        <!-- Featured Post -->
+        <div class="featured-post">
+            <div class="featured-badge">Featured Insight</div>
             <h2>Exploring New Perspectives: A Review of Shaikh Ziadul Haque’s Work</h2>
-            <div class="post-meta">Published on September 3, 2026 | By Shaikh Ziadul Haque</div>
-            
-            <div class="post-content">
-                <p>In a world overflowing with fast-paced digital content, finding a book that makes you pause, reflect, and genuinely think is a rare joy. As readers, we are constantly searching for stories and ideas that resonate with our inner thoughts.</p>
-                <p>The pacing of the book allows readers to absorb each chapter at their own comfortable rhythm. Instead of rushing through a plot, the author builds a quiet, contemplative atmosphere. Every section feels like a gentle conversation between the writer and the reader.</p>
-                <p>If you are looking to add something fresh, meaningful, and genuinely inspiring to your bookshelf or Kindle library this month, this title is a must-have.</p>
+            <div class="post-meta">
+              <span>Published on September 3, 2026</span> • <span>5 min read</span> • <span>By Shaikh Ziadul Haque</span>
             </div>
+            <p>In a world overflowing with fast-paced digital content, finding a book that makes you pause, reflect, and genuinely think is a rare joy. As readers, we are constantly searching for stories and ideas that resonate with our inner thoughts. The pacing allows readers to absorb each chapter at their own comfortable rhythm...</p>
+            <a href="https://www.amazon.com/dp/B0HHJNR713?ref_=ast_author_dp_rw&th=1&psc=1" target="_blank" class="read-more-btn">Get Your Copy on Amazon &rarr;</a>
+        </div>
 
-            <a href="https://www.amazon.com/dp/B0HHJNR713?ref_=ast_author_dp_rw&th=1&psc=1" class="btn" target="_blank">Get Your Copy on Amazon</a>
-        </article>
+        <!-- Latest Articles Grid -->
+        <section class="latest-section">
+            <h3>Latest Articles</h3>
+            <div class="articles-grid">
 
-        <!-- দ্বিতীয় রিভিউ পোস্ট (Focus in the Digital Age) -->
-        <article class="blog-post">
-            <h2>Reclaiming Your Focus in a World of Endless Notifications</h2>
-            <div class="post-meta">Published on September 3, 2026 | By Shaikh Ziadul Haque</div>
-            
-            <div class="post-content">
-                <p>How many times did you sit down to work today, only to find yourself mindlessly scrolling through notifications a few minutes later? In today's hyper-connected digital landscape, attention has become our most valuable and fragile currency.</p>
-                <p>In <em>Focus in the Digital Age: Reclaiming Your Mind from Daily Distractions</em>, the core exploration dives deep into how constant connectivity fragments our thinking and drains our creative energy. It offers practical, grounded reflections on how to step back, quiet the digital noise, and rebuild deep, meaningful concentration.</p>
-                <p>If you are struggling to maintain your workflow, finish your creative projects, or simply find some mental peace amidst the digital chaos, this book serves as an essential guide to taking back control of your mind.</p>
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <span class="card-category">Productivity</span>
+                    <h4>Reclaiming Your Focus in a World of Endless Notifications</h4>
+                    <div class="post-meta">September 3, 2026 • 4 min read</div>
+                    <p>How many times did you sit down to work today, only to find yourself mindlessly scrolling through notifications a few minutes later? In today's hyper-connected landscape...</p>
+                    <a href="https://www.amazon.com/Focus-Digital-Age-Reclaiming-Distractions-ebook/dp/B0HDNMY993?ref_=ast_author_mpb" target="_blank" class="card-link">Read on Amazon &rarr;</a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <span class="card-category">Mindfulness</span>
+                    <h4>Finding Sanctuary Within: Daily Reflections for a Quiet Mind</h4>
+                    <div class="post-meta">September 3, 2026 • 4 min read</div>
+                    <p>Between work deadlines, personal obligations, and the constant hum of digital distractions, our minds rarely get a moment to truly rest. Discover how daily reflections create an inner anchor...</p>
+                    <a href="https://www.amazon.com/Quiet-Mind-Daily-Reflections-Inner-ebook/dp/B0HD6QKX8F" target="_blank" class="card-link">Read on Amazon &rarr;</a>
+                </article>
+
             </div>
+        </section>
 
-            <a href="https://www.amazon.com/Focus-Digital-Age-Reclaiming-Distractions-ebook/dp/B0HDNMY993?ref_=ast_author_mpb" class="btn" target="_blank">Get Your Copy on Amazon</a>
-        </article>
+    </main>
 
-        <article class="blog-post">
-    <h2>Finding Sanctuary Within: Daily Reflections for a Quiet Mind</h2>
-    <div class="post-meta">Published on September 3, 2026 | By Shaikh Ziadul Haque</div>
-    
-    <div class="post-content">
-        <p>Between work deadlines, personal obligations, and the constant hum of digital distractions, our minds rarely get a moment to truly rest. We carry an invisible weight of stress that accumulates day after day, often leaving us feeling drained long before evening arrives.</p>
-        <p>In <em>Quiet Mind: Daily Reflections for Inner Peace</em>, the pages offer a gentle sanctuary from the chaos of daily life. Designed as a companion for daily contemplation, each reflection encourages you to pause, breathe, and reset your inner balance. It is not about silencing the world, but rather finding a quiet anchor within yourself amidst the storm.</p>
-        <p>If you want to start or end your day with clarity, grounding thoughts, and a renewed sense of calm, this collection of daily reflections will guide you toward true inner peace.</p>
-    </div>
-
-    <a href="https://www.amazon.com/Quiet-Mind-Daily-Reflections-Inner-ebook/dp/B0HD6QKX8F" class="btn" target="_blank">Get Your Copy on Amazon</a>
-</article>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Shaikh Ziadul Haque. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Shaikh Ziadul Haque. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
