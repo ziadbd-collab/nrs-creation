@@ -7,7 +7,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Combined CSS Styles -->
     <style>
         * {
             margin: 0;
@@ -162,6 +161,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
+            cursor: pointer;
         }
 
         .read-more-btn:hover, .card-link:hover {
@@ -222,6 +222,81 @@
             margin-bottom: 20px;
         }
 
+        /* Modal Popup Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            max-width: 750px;
+            width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: #f3f4f6;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4b5563;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .close-modal:hover {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .modal-body h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .modal-body h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #111827;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .modal-body p {
+            font-size: 1.05rem;
+            color: #374151;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
         /* Footer */
         .site-footer {
             background: #ffffff;
@@ -243,10 +318,10 @@
                 <p>Author & Creative Insights</p>
             </div>
             <nav class="nav-links">
-    <a href="blog.html" class="active">Blog</a>
-    <a href="https://www.amazon.com/stores/author/B0BDDHZ8X7/allbooks?_encoding=UTF8&ref_=aufs_ap_ahdr_dsk_ab&pd_rd_w=kx3rv&content-id=amzn1.sym.7e190e19-9f6f-4df8-807a-5a7608594741&pf_rd_p=7e190e19-9f6f-4df8-807a-5a7608594741&pf_rd_r=137-4524438-3573224&pd_rd_wg=73JQN&pd_rd_r=e2a4621c-1108-45a6-bac5-771f089cc066" target="_blank">Books</a>
-    <a href="about.html">About</a>
-</nav>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="https://www.amazon.com/stores/author/B0BDDHZ8X7/allbooks?_encoding=UTF8&ref_=aufs_ap_ahdr_dsk_ab&pd_rd_w=J3Jmx&content-id=amzn1.sym.7e190e19-9f6f-4df8-807a-5a7608594741&pf_rd_p=7e190e19-9f6f-4df8-807a-5a7608594741&pf_rd_r=137-4524438-3573224&pd_rd_wg=0C0wf&pd_rd_r=6cbdffe0-7e9e-44a0-91a1-597022518840" target="_blank">Books</a>
+                <a href="about.html">About</a>
+            </nav>
         </div>
     </header>
 
@@ -279,7 +354,7 @@
         </div>
 
         <!-- Latest Articles Grid -->
-        <section class="latest-section">
+        <main class="latest-section">
             <h3>Latest Articles</h3>
             <div class="articles-grid">
 
@@ -300,19 +375,45 @@
                     <p>Between work deadlines, personal obligations, and the constant hum of digital distractions, our minds rarely get a moment to truly rest. Discover how daily reflections create an inner anchor...</p>
                     <a href="https://www.amazon.com/Quiet-Mind-Daily-Reflections-Inner-ebook/dp/B0HD6QKX8F" target="_blank" class="card-link">Read on Amazon &rarr;</a>
                 </article>
-                <!-- Article 3: Theatre & Literature -->
+
+                <!-- Article 3: Theatre & Literature (Popup trigger) -->
                 <article class="article-card">
                     <span class="card-category">Literature & Theatre</span>
                     <h4>The Stage of Life: Why Theatre and Literature Still Matter in the Digital Age</h4>
                     <div class="post-meta">September 5, 2026 • 5 min read</div>
                     <p>In an era dominated by short-form digital clips and rapid scrolls, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor for human connection, empathy, and critical thought...</p>
-                    <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7?ref=ap_rdr&shoppingPortalEnabled=true" target="_blank" class="card-link">Explore More &rarr;</a>
+                    <a href="javascript:void(0);" class="card-link" onclick="openModal()">Explore More &rarr;</a>
                 </article>
 
             </div>
-        </section>
+        </main>
 
     </main>
+
+    <!-- Full Article Modal Popup -->
+    <div id="articleModal" class="modal-overlay" onclick="closeModalOutside(event)">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-body">
+                <span class="card-category" style="color: #2563eb; margin-bottom: 8px;">Literature & Theatre</span>
+                <h3>The Stage of Life: Why Theatre and Literature Still Matter in the Digital Age</h3>
+                <div class="post-meta" style="margin-bottom: 25px; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px;">
+                    September 5, 2026 • 5 min read • By Shaikh Ziadul Haque
+                </div>
+                
+                <p>In an era dominated by short-form digital clips, rapid scrolls, and endless digital notifications, the human attention span is constantly being tested. We consume information faster than ever, yet often walk away feeling unfulfilled. In this hyper-connected landscape, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor for genuine human connection.</p>
+
+                <h4>The Ephemeral Magic of the Stage</h4>
+                <p>Unlike recorded media, live theatre shares a breathing, living space with its audience. Every performance is unique, unfolding in real-time through the raw emotions of the actors and the collective heartbeat of the spectators. Plays that address social injustices, human struggles, and technological dilemmas—much like the works performed with Aranyak Natyadal—serve as a mirror to society. They force us to pause, reflect, and confront truths that we often try to escape in our daily routines.</p>
+
+                <h4>The Sanctuary of Printed Words</h4>
+                <p>Similarly, holding a book, turning its pages, and immersing oneself in long-form literature engages the mind in a way digital screens simply cannot replicate. Literature allows us to step inside another person’s perspective, cultivating empathy and critical thinking. Whether through poetry, plays, or thought-provoking prose, books provide a sanctuary for quiet contemplation.</p>
+
+                <h4>Moving Forward</h4>
+                <p>Embracing technology and digital platforms—such as managing online portfolios or creative storefronts—is essential in modern times. However, we must never lose touch with the classical arts that define our culture and conscience. Theatre and literature do not merely entertain; they preserve our humanity, challenge our intellect, and remind us of who we are.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -320,6 +421,26 @@
             <p>&copy; 2026 Shaikh Ziadul Haque. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript for Popup Modal -->
+    <script>
+        function openModal() {
+            document.getElementById('articleModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        }
+
+        function closeModalOutside(event) {
+            const modalOverlay = document.getElementById('articleModal');
+            if (event.target === modalOverlay) {
+                closeModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
