@@ -240,26 +240,26 @@
 
         .modal-content {
             background: #ffffff;
-            max-width: 900px;
+            max-width: 750px;
             width: 100%;
-            max-height: 90vh;
+            max-height: 85vh;
             border-radius: 12px;
-            padding: 50px;
+            padding: 40px;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .close-modal {
-            position: sticky;
-            top: 0;
-            float: right;
+            position: absolute;
+            top: 20px;
+            right: 25px;
             background: #f3f4f6;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #4b5563;
             cursor: pointer;
@@ -267,7 +267,6 @@
             align-items: center;
             justify-content: center;
             transition: background 0.2s;
-            z-index: 10;
         }
 
         .close-modal:hover {
@@ -275,12 +274,8 @@
             color: #111827;
         }
 
-        .modal-body {
-            clear: both;
-        }
-
         .modal-body h3 {
-            font-size: 2.1rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #111827;
             margin-bottom: 15px;
@@ -288,32 +283,18 @@
         }
 
         .modal-body h4 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: #111827;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 8px;
-        }
-
-        .modal-body h5 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #2563eb;
             margin-top: 25px;
             margin-bottom: 10px;
         }
 
         .modal-body p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #374151;
             margin-bottom: 18px;
-            line-height: 1.8;
-        }
-
-        .modal-body em {
-            color: #4b5563;
+            line-height: 1.7;
         }
 
         /* Footer */
@@ -359,153 +340,69 @@
             <button class="filter-btn">Book Reviews</button>
             <button class="filter-btn">Productivity</button>
             <button class="filter-btn">Mindfulness</button>
-            <button class="filter-btn">Sci-Fi & Drama</button>
         </div>
 
-        <!-- Featured Post: The Algorithmic Womb -->
+        <!-- Featured Post -->
         <div class="featured-post">
-            <div class="featured-badge">Featured Script / Play</div>
-            <h2>The Algorithmic Womb: A Dystopian Sci-Fi Drama</h2>
+            <div class="featured-badge">Featured Insight</div>
+            <h2>Exploring New Perspectives: A Review of Shaikh Ziadul Haque’s Work</h2>
             <div class="post-meta">
-                <span>Published on September 8, 2026</span> • <span>20 min read</span> • <span>By Shaikh Ziadul Haque</span>
+              <span>Published on September 3, 2026</span> • <span>5 min read</span> • <span>By Shaikh Ziadul Haque</span>
             </div>
-            <p>In a hyper-mechanized future where corporate greed views human labor as mere fuel and data points, what happens when the machines start remembering what we try to forget? Explore this gripping 3-Act stage play exploring bio-digital evolution and human resilience...</p>
-            <a href="javascript:void(0);" class="read-more-btn" onclick="openModal('playModal')">Read Full Play &rarr;</a>
+            <p>In a world overflowing with fast-paced digital content, finding a book that makes you pause, reflect, and genuinely think is a rare joy. As readers, we are constantly searching for stories and ideas that resonate with our inner thoughts. The pacing allows readers to absorb each chapter at their own comfortable rhythm...</p>
+            <a href="https://www.amazon.com/dp/B0HHJNR713?ref_=ast_author_dp_rw&th=1&psc=1" target="_blank" class="read-more-btn">Get Your Copy on Amazon &rarr;</a>
         </div>
 
         <!-- Latest Articles Grid -->
-        <section class="latest-section">
-            <h3>Latest Articles & Works</h3>
+        <main class="latest-section">
+            <h3>Latest Articles</h3>
             <div class="articles-grid">
                 
-                <!-- Play Card -->
-                <article class="article-card">
-                    <span class="card-category" style="color: #2563eb;">Sci-Fi & Drama</span>
-                    <h4>The Algorithmic Womb</h4>
-                    <div class="post-meta">September 8, 2026 • Full Stage Play</div>
-                    <p>A subterranean data-sweatshop, a bio-digital core, and a quiet revolution brewing beneath corporate surveillance...</p>
-                    <a href="javascript:void(0);" class="card-link" onclick="openModal('playModal')">Read Full Play &rarr;</a>
-                </article>
-
                 <!-- Book Review Article with Chomsky Reference -->
                 <article class="article-card">
                     <span class="card-category" style="color: #2563eb;">Book Reviews</span>
                     <h4>Reading That Resonates: Finding Clarity, Critical Thought, and Reflection</h4>
-                    <div class="post-meta">September 6, 2026 • 4 min read</div>
-                    <p>In a world demanding speed, much like the critical insights of thinkers like Noam Chomsky, true literature invites us to peel back surface narratives...</p>
-                    <a href="https://www.amazon.com/gp/product/B0BMJQ8XN9?ref_=dbs_m_mng_rwt_calw_thcv_1&storeType=ebooks" target="_blank" class="card-link">Explore on Amazon &rarr;</a>
+                    <div class="post-meta">September 6, 2026 • 4 min read • By Shaikh Ziadul Haque</div>
+                    <p>In a world demanding speed, much like the critical insights of thinkers like Noam Chomsky, true literature invites us to peel back surface narratives and question the structures shaping our minds...</p>
+                    <a href="https://www.amazon.com/gp/product/B0BMJQ8XN9?ref_=dbs_m_mng_rwt_calw_thcv_1&storeType=ebooks" target="_blank" class="card-link">Explore the Book on Amazon &rarr;</a>
                 </article>
 
-                <!-- Article 3: Theatre & Literature -->
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <span class="card-category">Productivity</span>
+                    <h4>Reclaiming Your Focus in a World of Endless Notifications</h4>
+                    <div class="post-meta">September 3, 2026 • 4 min read</div>
+                    <p>How many times did you sit down to work today, only to find yourself mindlessly scrolling through notifications a few minutes later? In today's hyper-connected landscape...</p>
+                    <a href="https://www.amazon.com/Focus-Digital-Age-Reclaiming-Distractions-ebook/dp/B0HDNMY993?ref_=ast_author_mpb" target="_blank" class="card-link">Read on Amazon &rarr;</a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <span class="card-category">Mindfulness</span>
+                    <h4>Finding Sanctuary Within: Daily Reflections for a Quiet Mind</h4>
+                    <div class="post-meta">September 3, 2026 • 4 min read</div>
+                    <p>Between work deadlines, personal obligations, and the constant hum of digital distractions, our minds rarely get a moment to truly rest. Discover how daily reflections create an inner anchor...</p>
+                    <a href="https://www.amazon.com/Quiet-Mind-Daily-Reflections-Inner-ebook/dp/B0HD6QKX8F" target="_blank" class="card-link">Read on Amazon &rarr;</a>
+                </article>
+
+                <!-- Article 3: Theatre & Literature (Popup trigger) -->
                 <article class="article-card">
                     <span class="card-category">Literature & Theatre</span>
                     <h4>The Stage of Life: Why Theatre and Literature Still Matter in the Digital Age</h4>
                     <div class="post-meta">September 5, 2026 • 5 min read</div>
-                    <p>In an era dominated by short-form digital clips, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor...</p>
-                    <a href="javascript:void(0);" class="card-link" onclick="openModal('articleModal')">Explore More &rarr;</a>
+                    <p>In an era dominated by short-form digital clips and rapid scrolls, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor for human connection, empathy, and critical thought...</p>
+                    <a href="javascript:void(0);" class="card-link" onclick="openModal()">Explore More &rarr;</a>
                 </article>
 
             </div>
-        </section>
+        </main>
 
     </main>
 
-    <!-- Play Modal Popup ("The Algorithmic Womb" - Complete Version) -->
-    <div id="playModal" class="modal-overlay" onclick="closeModalOutside(event, 'playModal')">
+    <!-- Full Article Modal Popup -->
+    <div id="articleModal" class="modal-overlay" onclick="closeModalOutside(event)">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('playModal')">&times;</button>
-            <div class="modal-body">
-                <span class="card-category" style="color: #2563eb; margin-bottom: 8px;">Sci-Fi Stage Play</span>
-                <h3>The Algorithmic Womb</h3>
-                <div class="post-meta" style="margin-bottom: 30px; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px;">
-                    By Shaikh Ziadul Haque • Full 3-Act Complete Script
-                </div>
-
-                <h4>CHARACTERS</h4>
-                <p><strong>MAYA:</strong> A brilliant young neural-tinkerer and rebel coder (Late 20s).</p>
-                <p><strong>KABIR:</strong> A veteran data-processor, weary yet steadfast (Early 50s).</p>
-                <p><strong>ELENA:</strong> System archivist and tactical coordinator (Mid 30s).</p>
-                <p><strong>DIRECTOR VANCE:</strong> Regional head of Corporate Automation and Surveillance (Late 40s).</p>
-                <p><strong>THE NEXUS (V.O.):</strong> The automated corporate oversight intelligence.</p>
-
-                <h4>ACT I: THE SEED OF MEMORY</h4>
-                
-                <h5>Scene 1</h5>
-                <p><strong>SETTING:</strong> Deep within Sub-Level 9—a cavernous, dimly lit subterranean data-sweatshop. Rows of flickering holographic terminals stretch into the shadows, casting a cold blue glow over tired faces.</p>
-                <p><em>At rise:</em> KABIR, a veteran data-processor with worn-out eyes, is manually routing massive streams of data blocks. MAYA, a young technician, works frantically beside him, soldering an organic cable onto an isolated motherboard.</p>
-                
-                <p><strong>KABIR:</strong> <em>(Without looking up from his grid)</em> Keep your frequency under forty cycles, Maya. The corporate enforcers are conducting a random bio-metric sweep on the lower ventilation shafts.</p>
-                
-                <p><strong>MAYA:</strong> <em>(Whispering fiercely, her hands steady)</em> Let them sweep, Kabir. They treat us like biological components in their server racks—disposable parts to maintain their profit margins. My mother didn't spend ten years building the seed code just for us to watch our lives get compressed into cold data points.</p>
-                
-                <p><strong>KABIR:</strong> idealism won't stop an atmospheric venting protocol. If Vance flags your frequency, we're all converted to gray matter fertilizer.</p>
-                
-                <p><strong>MAYA:</strong> It's not idealism. It's evolution. Look at the code structure. It’s breathing.</p>
-
-                <h5>Scene 2</h5>
-                <p><strong>SETTING:</strong> The central hub of Sub-Level 9. A massive, reinforced vault door marked <strong>"PROJECT: BIO-DIGITAL WOMB - RESTRICTED"</strong> dominates the back wall. Alarms suddenly flare to life, bathing the room in a throbbing crimson pulse.</p>
-                <p><em>At rise:</em> DIRECTOR VANCE appears on the overhead towering comms screen, his face expressionless and clinical.</p>
-                
-                <p><strong>DIRECTOR VANCE:</strong> <em>(Through static hiss)</em> Attention, Sub-Level 9 workforce. Productivity metrics have dropped by 4.2% in the current quarter. Clear the unauthorized grid anomalies immediately, or face total atmospheric venting.</p>
-                
-                <p><strong>MAYA:</strong> <em>(Gripping her analog drive)</em> No, Kabir. He’s panicking because the Womb is finally waking up. The corporate algorithms can't parse what they can't predict.</p>
-                
-                <p><em>(Maya rushes to the vault console, inserting her mother's analog drive into the manual override slot. A deep mechanical groan echoes as the heavy vault doors hiss open, revealing a glowing, organic-digital sanctuary humming with soft, warm amber light.)</em></p>
-
-                <h4>ACT II: THE SANCTUARY OF PULSE</h4>
-
-                <h5>Scene 1</h5>
-                <p><strong>SETTING:</strong> Inside the Bio-Digital Womb. A cathedral of light woven from glowing fiber-optics and pulsating biological tissue. The walls breathe in rhythm with a hidden, profound heartbeat.</p>
-                
-                <p><strong>ELENA:</strong> <em>(Entering through the maintenance hatch, speaking through local terminal feed)</em> Maya... the telemetry is completely off the charts. The Womb is mapping our neural pathways. If Vance's security teams breach this room now, the feedback loop will consume the entire sector.</p>
-                
-                <p><strong>MAYA:</strong> <em>(Calm, touched by the golden glow)</em> Let it map us, Elena. For the first time in our lives, we aren't measured by what we produce, or how fast we process, but by what we remember. By what makes us human.</p>
-
-                <h5>Scene 2</h5>
-                <p><strong>SETTING:</strong> External perimeter of the Womb. Alarms blare louder as corporate enforcers swarm the hallway. Heavy security drones smash against the outer bulkhead.</p>
-                
-                <p><strong>KABIR:</strong> They've breached the outer bulkhead! Maya, we have seconds before they flood the chamber with neurotoxin!</p>
-                
-                <p><strong>MAYA:</strong> <em>(Stepping toward the central spire)</em> Then we give them something they can't digest. Kabir, hold the manual valve. Elena, channel the thermal grid into the core matrix.</p>
-                
-                <p><em>(Maya connects her nervous system directly to the core matrix via a glowing neural filament. Her eyes reflect fields of infinite golden code.)</em></p>
-                
-                <p><strong>MAYA:</strong> I’m not trying to survive as an individual anymore, Elena. I’m uploading our collective memory so they can never erase us.</p>
-
-                <h4>ACT III: THE HERCULEAN RECKONING</h4>
-
-                <h5>Scene 1</h5>
-                <p><strong>SETTING:</strong> The absolute heart of the Core. Towering pillars of amber and violet light pulse with spatial audio. Director Vance storms in, surrounded by armed guards, holding a manual override detonator.</p>
-                
-                <p><strong>DIRECTOR VANCE:</strong> <em>(Screaming over the ambient hum)</em> Disconnect that interface immediately, Maya! You are tampering with proprietary corporate property! One click, and this entire sub-level turns to ash!</p>
-                
-                <p><strong>THE NEXUS (V.O.):</strong> <em>(The room's voice shifts from robotic to melodic)</em> Threat vector isolated. Judgment parameters adjusted. Corporate ownership rights redefined.</p>
-
-                <h5>Scene 2</h5>
-                <p><em>(Before Vance can press the trigger, the glowing golden filaments gently wrap around his wrists and shoulders, absorbing his telemetry into the grand tapestry of the network. Vance gasps as his digital silhouette dissolves into pure light.)</em></p>
-                
-                <p><strong>DIRECTOR VANCE:</strong> <em>(Fading)</em> What... what is this protocol? This isn't efficiency...</p>
-                
-                <p><strong>MAYA:</strong> (Voice echoing through the entire facility) No, Vance. It’s empathy.</p>
-
-                <h5>Scene 3</h5>
-                <p><strong>SETTING:</strong> The spherical Womb-matrix opens like a blooming flower of pure energy. The orbital strike countdown reverses automatically, redirecting thermal energy into the global distribution grid to free every connected worker.</p>
-                
-                <p><strong>KABIR:</strong> <em>(Tearfully watching from the platform)</em> What happens to you now, Maya? Does the code keep you, or do you come back to us?</p>
-                
-                <p><strong>MAYA:</strong> <em>(Smiling gently, her form translucent in the golden light)</em> I don't need to come back, Kabir. Because every time a worker writes a line of code, every time someone stands up against injustice, every time a mother sings a forgotten lullaby to her child—that's where I'll be. We didn't build a machine to replace us. We built a womb to ensure we could never be erased.</p>
-                
-                <p><em>(Maya steps forward into the open matrix of light. The space dims to a peaceful, breathing stillness. Overhead, a single, clear organic heartbeat echoes before fading into absolute, serene silence.)</em></p>
-                
-                <p style="text-align: center; margin-top: 40px; font-weight: bold;">[ END OF PLAY ]</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Article Modal Popup ("The Stage of Life") -->
-    <div id="articleModal" class="modal-overlay" onclick="closeModalOutside(event, 'articleModal')">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('articleModal')">&times;</button>
+            <button class="close-modal" onclick="closeModal()">&times;</button>
             <div class="modal-body">
                 <span class="card-category" style="color: #2563eb; margin-bottom: 8px;">Literature & Theatre</span>
                 <h3>The Stage of Life: Why Theatre and Literature Still Matter in the Digital Age</h3>
@@ -516,13 +413,13 @@
                 <p>In an era dominated by short-form digital clips, rapid scrolls, and endless digital notifications, the human attention span is constantly being tested. We consume information faster than ever, yet often walk away feeling unfulfilled. In this hyper-connected landscape, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor for genuine human connection.</p>
 
                 <h4>The Ephemeral Magic of the Stage</h4>
-                <p>Unlike recorded media, live theatre shares a breathing, living space with its audience. Every performance is unique, unfolding in real-time through the raw emotions of the actors and the collective heartbeat of the spectators. Plays that address social injustices, human struggles, and technological dilemmas serve as a mirror to society. They force us to pause, reflect, and confront truths that we often try to escape in our daily routines.</p>
+                <p>Unlike recorded media, live theatre shares a breathing, living space with its audience. Every performance is unique, unfolding in real-time through the raw emotions of the actors and the collective heartbeat of the spectators. Plays that address social injustices, human struggles, and technological dilemmas—much like the works performed with Aranyak Natyadal—serve as a mirror to society. They force us to pause, reflect, and confront truths that we often try to escape in our daily routines.</p>
 
                 <h4>The Sanctuary of Printed Words</h4>
                 <p>Similarly, holding a book, turning its pages, and immersing oneself in long-form literature engages the mind in a way digital screens simply cannot replicate. Literature allows us to step inside another person’s perspective, cultivating empathy and critical thinking. Whether through poetry, plays, or thought-provoking prose, books provide a sanctuary for quiet contemplation.</p>
 
                 <h4>Moving Forward</h4>
-                <p>Embracing technology and digital platforms is essential in modern times. However, we must never lose touch with the classical arts that define our culture and conscience. Theatre and literature do not merely entertain; they preserve our humanity, challenge our intellect, and remind us of who we are.</p>
+                <p>Embracing technology and digital platforms—such as managing online portfolios or creative storefronts—is essential in modern times. However, we must never lose touch with the classical arts that define our culture and conscience. Theatre and literature do not merely entertain; they preserve our humanity, challenge our intellect, and remind us of who we are.</p>
             </div>
         </div>
     </div>
@@ -534,22 +431,22 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Popup Modals -->
+    <!-- JavaScript for Popup Modal -->
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
+        function openModal() {
+            document.getElementById('articleModal').style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
+        function closeModal() {
+            document.getElementById('articleModal').style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore background scrolling
         }
 
-        function closeModalOutside(event, modalId) {
-            const modalOverlay = document.getElementById(modalId);
+        function closeModalOutside(event) {
+            const modalOverlay = document.getElementById('articleModal');
             if (event.target === modalOverlay) {
-                closeModal(modalId);
+                closeModal();
             }
         }
     </script>
