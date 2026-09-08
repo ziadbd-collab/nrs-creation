@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading | Shaikh Ziadul Haque</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #111827; line-height: 1.8; }
+        .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-block; color: #2563eb; text-decoration: none; font-weight: 600; margin-bottom: 30px; font-size: 0.95rem; }
+        .back-link:hover { text-decoration: underline; }
+        .reader-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 50px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
+        .card-category { font-size: 0.8rem; font-weight: 600; color: #2563eb; text-transform: uppercase; margin-bottom: 12px; display: block; }
+        h1 { font-size: 2.2rem; font-weight: 700; color: #111827; margin-bottom: 15px; line-height: 1.3; }
+        .post-meta { font-size: 0.9rem; color: #6b7280; margin-bottom: 35px; border-bottom: 1px solid #e5e7eb; padding-bottom: 20px; }
+        
+        /* Article / Play Typography inside reader */
+        .reader-content h4 { font-size: 1.35rem; font-weight: 600; color: #111827; margin-top: 40px; margin-bottom: 15px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+        .reader-content h5 { font-size: 1.15rem; font-weight: 600; color: #2563eb; margin-top: 25px; margin-bottom: 10px; }
+        .reader-content p { font-size: 1.05rem; color: #374151; margin-bottom: 18px; }
+        .reader-content em { color: #4b5563; }
+        
+        .site-footer { text-align: center; color: #6b7280; font-size: 0.9rem; margin-top: 60px; padding: 20px 0; border-top: 1px solid #e5e7eb; }
+
+        @media (max-width: 768px) {
+            .reader-card { padding: 25px; }
+            h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <a href="blog.html" class="back-link">&larr; Back to Blog</a>
+        
+        <div class="reader-card" id="readerContainer">
+            <!-- Content loaded dynamically via JavaScript -->
+        </div>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Shaikh Ziadul Haque. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <!-- Load Data and Render Post -->
+    <script src="data.js"></script>
+    <script>
+        // Get 'id' parameter from URL (e.g. reader.html?id=algorithmic-womb)
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        const container = document.getElementById('readerContainer');
+        const post = sitePosts.find(p => p.id === postId);
+
+        if (post) {
+            document.title = `${post.title} | Shaikh Ziadul Haque`;
+            container.innerHTML = `
+                <span class="card-category">${post.category}</span>
+                <h1>${post.title}</h1>
+                <div class="post-meta">
+                    By Shaikh Ziadul Haque • Published on ${post.date} • ${post.readTime}
+                </div>
+                <div class="reader-content">
+                    ${post.content}
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <h1>Post Not Found</h1>
+                <p>The work you are looking for does not exist or has been removed.</p>
+                <a href="blog.html" class="back-link" style="margin-top: 20px; display: inline-block;">Return to Blog</a>
+            `;
+        }
+    </script>
+
+</body>
+</html>
