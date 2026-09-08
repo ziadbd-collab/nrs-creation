@@ -4,313 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shaikh Ziadul Haque | Official Blog</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
-            color: #111827;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .site-header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 20px 0;
-            margin-bottom: 40px;
-        }
-
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        .logo p {
-            font-size: 0.85rem;
-            color: #6b7280;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: #2563eb;
-        }
-
-        /* Blog Intro */
-        .blog-intro {
-            margin-bottom: 30px;
-        }
-
-        .blog-intro h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 8px;
-        }
-
-        .intro-desc {
-            color: #4b5563;
-            font-size: 1.1rem;
-            max-width: 700px;
-        }
-
-        /* Category Filters */
-        .category-filters {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-        }
-
-        .filter-btn {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #4b5563;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: #111827;
-            color: #ffffff;
-            border-color: #111827;
-        }
-
-        /* Featured Post */
-        .featured-post {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-        }
-
-        .featured-badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: #2563eb;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-
-        .featured-post h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .post-meta {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-bottom: 15px;
-        }
-
-        .featured-post p {
-            color: #4b5563;
-            margin-bottom: 20px;
-        }
-
-        .read-more-btn, .card-link {
-            display: inline-block;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
-
-        .read-more-btn:hover, .card-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Latest Articles Grid */
-        .latest-section h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .article-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-
-        .card-category {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #6b7280;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .article-card h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .article-card p {
-            font-size: 0.95rem;
-            color: #4b5563;
-            margin-bottom: 20px;
-        }
-
-        /* Modal Popup Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: #ffffff;
-            max-width: 750px;
-            width: 100%;
-            max-height: 85vh;
-            border-radius: 12px;
-            padding: 40px;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: #f3f4f6;
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #4b5563;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-
-        .close-modal:hover {
-            background: #e5e7eb;
-            color: #111827;
-        }
-
-        .modal-body h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .modal-body h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #111827;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .modal-body p {
-            font-size: 1.05rem;
-            color: #374151;
-            margin-bottom: 18px;
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        .site-footer {
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
-            padding: 30px 0;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #111827; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .site-header { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 20px 0; margin-bottom: 40px; }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo h1 { font-size: 1.25rem; font-weight: 700; color: #111827; }
+        .logo p { font-size: 0.85rem; color: #6b7280; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #4b5563; font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: #2563eb; }
+        .blog-intro { margin-bottom: 30px; }
+        .blog-intro h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+        .intro-desc { color: #4b5563; font-size: 1.1rem; max-width: 700px; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 60px; }
+        .article-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
+        .article-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        .card-category { font-size: 0.75rem; font-weight: 600; color: #2563eb; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .article-card h4 { font-size: 1.2rem; font-weight: 700; color: #111827; margin-bottom: 10px; }
+        .article-card p { font-size: 0.95rem; color: #4b5563; margin-bottom: 20px; }
+        .card-link { display: inline-block; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .card-link:hover { text-decoration: underline; }
+        .site-footer { background: #ffffff; border-top: 1px solid #e5e7eb; padding: 30px 0; text-align: center; color: #6b7280; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
     <header class="site-header">
         <div class="container">
             <div class="logo">
@@ -319,136 +40,50 @@
             </div>
             <nav class="nav-links">
                 <a href="blog.html" class="active">Blog</a>
-                <a href="https://www.amazon.com/stores/author/B0BDDHZ8X7/allbooks?_encoding=UTF8&ref_=aufs_ap_ahdr_dsk_ab&pd_rd_w=J3Jmx&content-id=amzn1.sym.7e190e19-9f6f-4df8-807a-5a7608594741&pf_rd_p=7e190e19-9f6f-4df8-807a-5a7608594741&pf_rd_r=137-4524438-3573224&pd_rd_wg=0C0wf&pd_rd_r=6cbdffe0-7e9e-44a0-91a1-597022518840" target="_blank">Books</a>
+                <a href="https://www.amazon.com/stores/author/B0BDDHZ8X7/allbooks" target="_blank">Books</a>
                 <a href="about.html">About</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content container">
-        
-        <!-- Blog Hero Section -->
         <section class="blog-intro">
             <h2>Insights & Ideas</h2>
-            <p class="intro-desc">Thoughts on focus, mindfulness, creativity, and building a balanced digital life. Written for mindful readers.</p>
+            <p class="intro-desc">Thoughts on focus, mindfulness, drama, and digital life. Written for mindful readers.</p>
         </section>
 
-        <!-- Category Filters -->
-        <div class="category-filters">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Book Reviews</button>
-            <button class="filter-btn">Productivity</button>
-            <button class="filter-btn">Mindfulness</button>
-        </div>
-
-        <!-- Featured Post -->
-        <div class="featured-post">
-            <div class="featured-badge">Featured Insight</div>
-            <h2>Exploring New Perspectives: A Review of Shaikh Ziadul Haque’s Work</h2>
-            <div class="post-meta">
-              <span>Published on September 3, 2026</span> • <span>5 min read</span> • <span>By Shaikh Ziadul Haque</span>
+        <section class="latest-section">
+            <div class="articles-grid" id="postsContainer">
+                <!-- Posts will be loaded dynamically from data.js -->
             </div>
-            <p>In a world overflowing with fast-paced digital content, finding a book that makes you pause, reflect, and genuinely think is a rare joy. As readers, we are constantly searching for stories and ideas that resonate with our inner thoughts. The pacing allows readers to absorb each chapter at their own comfortable rhythm...</p>
-            <a href="https://www.amazon.com/dp/B0HHJNR713?ref_=ast_author_dp_rw&th=1&psc=1" target="_blank" class="read-more-btn">Get Your Copy on Amazon &rarr;</a>
-        </div>
-
-        <!-- Latest Articles Grid -->
-        <main class="latest-section">
-            <h3>Latest Articles</h3>
-            <div class="articles-grid">
-                
-                <!-- Book Review Article with Chomsky Reference -->
-                <article class="article-card">
-                    <span class="card-category" style="color: #2563eb;">Book Reviews</span>
-                    <h4>Reading That Resonates: Finding Clarity, Critical Thought, and Reflection</h4>
-                    <div class="post-meta">September 6, 2026 • 4 min read • By Shaikh Ziadul Haque</div>
-                    <p>In a world demanding speed, much like the critical insights of thinkers like Noam Chomsky, true literature invites us to peel back surface narratives and question the structures shaping our minds...</p>
-                    <a href="https://www.amazon.com/gp/product/B0BMJQ8XN9?ref_=dbs_m_mng_rwt_calw_thcv_1&storeType=ebooks" target="_blank" class="card-link">Explore the Book on Amazon &rarr;</a>
-                </article>
-
-                <!-- Article 1 -->
-                <article class="article-card">
-                    <span class="card-category">Productivity</span>
-                    <h4>Reclaiming Your Focus in a World of Endless Notifications</h4>
-                    <div class="post-meta">September 3, 2026 • 4 min read</div>
-                    <p>How many times did you sit down to work today, only to find yourself mindlessly scrolling through notifications a few minutes later? In today's hyper-connected landscape...</p>
-                    <a href="https://www.amazon.com/Focus-Digital-Age-Reclaiming-Distractions-ebook/dp/B0HDNMY993?ref_=ast_author_mpb" target="_blank" class="card-link">Read on Amazon &rarr;</a>
-                </article>
-
-                <!-- Article 2 -->
-                <article class="article-card">
-                    <span class="card-category">Mindfulness</span>
-                    <h4>Finding Sanctuary Within: Daily Reflections for a Quiet Mind</h4>
-                    <div class="post-meta">September 3, 2026 • 4 min read</div>
-                    <p>Between work deadlines, personal obligations, and the constant hum of digital distractions, our minds rarely get a moment to truly rest. Discover how daily reflections create an inner anchor...</p>
-                    <a href="https://www.amazon.com/Quiet-Mind-Daily-Reflections-Inner-ebook/dp/B0HD6QKX8F" target="_blank" class="card-link">Read on Amazon &rarr;</a>
-                </article>
-
-                <!-- Article 3: Theatre & Literature (Popup trigger) -->
-                <article class="article-card">
-                    <span class="card-category">Literature & Theatre</span>
-                    <h4>The Stage of Life: Why Theatre and Literature Still Matter in the Digital Age</h4>
-                    <div class="post-meta">September 5, 2026 • 5 min read</div>
-                    <p>In an era dominated by short-form digital clips and rapid scrolls, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor for human connection, empathy, and critical thought...</p>
-                    <a href="javascript:void(0);" class="card-link" onclick="openModal()">Explore More &rarr;</a>
-                </article>
-
-            </div>
-        </main>
-
+        </section>
     </main>
 
-    <!-- Full Article Modal Popup -->
-    <div id="articleModal" class="modal-overlay" onclick="closeModalOutside(event)">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <div class="modal-body">
-                <span class="card-category" style="color: #2563eb; margin-bottom: 8px;">Literature & Theatre</span>
-                <h3>The Stage of Life: Why Theatre and Literature Still Matter in the Digital Age</h3>
-                <div class="post-meta" style="margin-bottom: 25px; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px;">
-                    September 5, 2026 • 5 min read • By Shaikh Ziadul Haque
-                </div>
-                
-                <p>In an era dominated by short-form digital clips, rapid scrolls, and endless digital notifications, the human attention span is constantly being tested. We consume information faster than ever, yet often walk away feeling unfulfilled. In this hyper-connected landscape, the deep, transformative power of live theatre and printed literature remains an irreplaceable anchor for genuine human connection.</p>
-
-                <h4>The Ephemeral Magic of the Stage</h4>
-                <p>Unlike recorded media, live theatre shares a breathing, living space with its audience. Every performance is unique, unfolding in real-time through the raw emotions of the actors and the collective heartbeat of the spectators. Plays that address social injustices, human struggles, and technological dilemmas—much like the works performed with Aranyak Natyadal—serve as a mirror to society. They force us to pause, reflect, and confront truths that we often try to escape in our daily routines.</p>
-
-                <h4>The Sanctuary of Printed Words</h4>
-                <p>Similarly, holding a book, turning its pages, and immersing oneself in long-form literature engages the mind in a way digital screens simply cannot replicate. Literature allows us to step inside another person’s perspective, cultivating empathy and critical thinking. Whether through poetry, plays, or thought-provoking prose, books provide a sanctuary for quiet contemplation.</p>
-
-                <h4>Moving Forward</h4>
-                <p>Embracing technology and digital platforms—such as managing online portfolios or creative storefronts—is essential in modern times. However, we must never lose touch with the classical arts that define our culture and conscience. Theatre and literature do not merely entertain; they preserve our humanity, challenge our intellect, and remind us of who we are.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <p>&copy; 2026 Shaikh Ziadul Haque. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Popup Modal -->
+    <!-- Load Data and Render Blog Cards -->
+    <script src="data.js"></script>
     <script>
-        function openModal() {
-            document.getElementById('articleModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeModal() {
-            document.getElementById('articleModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore background scrolling
-        }
-
-        function closeModalOutside(event) {
-            const modalOverlay = document.getElementById('articleModal');
-            if (event.target === modalOverlay) {
-                closeModal();
-            }
-        }
+        const container = document.getElementById('postsContainer');
+        
+        sitePosts.forEach(post => {
+            const card = document.createElement('article');
+            card.className = 'article-card';
+            card.innerHTML = `
+                <div>
+                    <span class="card-category">${post.category}</span>
+                    <h4>${post.title}</h4>
+                    <div style="font-size: 0.85rem; color: #6b7280; margin-bottom: 10px;">${post.date} • ${post.readTime}</div>
+                    <p>${post.excerpt}</p>
+                </div>
+                <a href="reader.html?id=${post.id}" class="card-link">Read Full Work &rarr;</a>
+            `;
+            container.appendChild(card);
+        });
     </script>
 
 </body>
