@@ -75,10 +75,8 @@ const sitePosts = [
             <h4>Moving Forward</h4>
             <p>Embracing technology and digital platforms is essential in modern times. However, we must never lose touch with the classical arts that define our culture and conscience. Theatre and literature do not merely entertain; they preserve our humanity, challenge our intellect, and remind us of who we are.</p>
         `
-    }
-];
-
-{
+    },
+    {
         id: "connected-in-logic",
         title: "Connected in Logic",
         category: "Psychological Play",
@@ -270,3 +268,4 @@ const sitePosts = [
             <p style="text-align: center; margin-top: 30px; font-weight: bold;">(— The lights on stage fade out completely —)<br>(The End)</p>
         `
     }
+];
