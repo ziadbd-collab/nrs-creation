@@ -27,6 +27,9 @@
 
     <!-- Favicon -->
     <link rel="icon" href="nrs_logo.png" type="image/png">
+    
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
 /* কিউব কন্টেইনার যেন হিরো সেকশনের বাইরে না যায় */
@@ -417,12 +420,72 @@
             text-align: center;
         }
 
+        /* Professional Footer Styles with Hub Links */
         footer {
             background-color: #0b0f19;
             color: #94a3b8;
-            text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 4rem 1.5rem 2rem;
             margin-top: 5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .footer-col h3, .footer-col h4 {
+            color: #f3f4f6;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+
+        .footer-links-grid {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links-grid li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links-grid li a i {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .footer-links-grid li a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 25px;
+            color: #64748b;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -616,9 +679,28 @@
 
     </main>
 
-    <!-- Global App Footer Section -->
+    <!-- Professional Global Footer Section with Social Hub Links -->
     <footer>
-        <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>NRS Creation</h3>
+                <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals to transform contemporary aesthetic spaces.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore & Hub</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="blog" target="_blank"><i class="fa-solid fa-blog"></i> Official Author Blog</a></li>
+                    <li><a href="https://linktr.ee/info.nrscreation" target="_blank"><i class="fa-solid fa-link"></i> Linktree Portal</a></li>
+                    <li><a href="https://medium.com/@ziad.bd" target="_blank"><i class="fa-brands fa-medium"></i> Medium Articles</a></li>
+                    <li><a href="https://www.pinterest.com/nrscreation_hub/" target="_blank"><i class="fa-brands fa-pinterest"></i> Pinterest Visual Boards</a></li>
+                    <li><a href="https://x.com/szhaque" target="_blank"><i class="fa-brands fa-x-twitter"></i> X (Twitter) Updates</a></li>
+                    <li><a href="https://www.reddit.com/user/NRS_Music/" target="_blank"><i class="fa-brands fa-reddit"></i> Reddit Community</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NRS Creation. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
