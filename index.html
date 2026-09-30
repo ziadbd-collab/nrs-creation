@@ -413,6 +413,39 @@
             font-weight: 600;
         }
 
+        /* Testimonials Section Styles */
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p.quote {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .client-info h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .client-info span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section & Form Styles */
         .contact-section {
             margin-top: 5rem;
             padding: 3rem 2rem;
@@ -424,6 +457,41 @@
             margin-right: auto;
             border: 1px solid #e2e8f0;
             text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 0.8rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-color);
+            background-color: #fff;
         }
 
         /* Professional Footer Styles with Hub Links */
@@ -646,6 +714,25 @@
             <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank" class="btn-large" style="padding: 10px 25px; text-decoration: none; color: white; background: var(--accent-color); border-radius: 30px;">View Full Author Page</a>
         </div>
 
+        <!-- Client Testimonials Section -->
+        <h2 class="section-title">Client & Partner Feedback</h2>
+        <div class="grid">
+            <div class="testimonial-card">
+                <p class="quote">"NRS Creation delivered exceptional 3D modeling and animation assets for our digital project. The attention to detail and cinematic quality exceeded our expectations."</p>
+                <div class="client-info">
+                    <h4>Creative Director</h4>
+                    <span>Digital Media Partner</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"The abstract wall art prints purchased from NRS Creation have completely transformed our office interior space. Truly high-end aesthetic designs!"</p>
+                <div class="client-info">
+                    <h4>Interior Design Client</h4>
+                    <span>Bespoke Home Gallery</span>
+                </div>
+            </div>
+        </div>
+
         <!-- About The Agency Section -->
         <section class="about-section">
             <h3>About The Agency</h3>
@@ -673,14 +760,29 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section with Interactive Form -->
         <section class="contact-section" id="contact">
             <h3>Want to discuss a project?</h3>
-            <p style="margin: 15px 0; color: var(--text-muted);">Phone: <strong>+8801921473322</strong></p>
-            <p style="color: var(--text-muted);">Click below to email me directly:</p>
-            <a href="mailto:info.nrscreation@gmail.com?subject=New%20Project%20Inquiry" class="btn-large" style="padding: 12px 25px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 20px;">
-                Email info.nrscreation@gmail.com
-            </a>
+            <p style="margin: 10px 0; color: var(--text-muted);">Phone: <strong>+8801921473322</strong></p>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Fill out the form below or email us directly at <a href="mailto:info.nrscreation@gmail.com" style="color: var(--accent-color); text-decoration: none;">info.nrscreation@gmail.com</a></p>
+            
+            <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email5" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details / Message</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or inquiry..."></textarea>
+                </div>
+                <button type="submit" class="btn-large" style="padding: 12px 25px; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s; width: 100%;">
+                    Send Message ➔
+                </button>
+            </form>
         </section>
 
     </main>
