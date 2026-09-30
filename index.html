@@ -62,7 +62,7 @@
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    bottom: -150px; /* নিচ থেকে শুরু হবে */
+    bottom: -150px;
     animation: floatCube infinite linear;
 }
 
@@ -81,7 +81,7 @@
     }
     100% {
         transform: translateY(-800px) rotate(360deg);
-        opacity: 0; /* উপরে উঠার সাথে সাথে মিলিয়ে যাবে */
+        opacity: 0;
     }
 }
         /* Base Styles & CSS Variables */
@@ -903,13 +903,13 @@
             </div>
         </section>
 
-        <!-- Contact Section with Interactive Form -->
+        <!-- Contact Section with Formspree Endpoint -->
         <section class="contact-section" id="contact">
             <h3>Want to discuss a project?</h3>
             <p style="margin: 10px 0; color: var(--text-muted);">Phone: <strong>+8801921473322</strong></p>
             <p style="color: var(--text-muted); font-size: 0.95rem;">Fill out the form below or email us directly at <a href="mailto:info.nrscreation@gmail.com" style="color: var(--accent-color); text-decoration: none;">info.nrscreation@gmail.com</a></p>
             
-            <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+            <form action="https://formspree.io/f/xnpnwron" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -922,7 +922,7 @@
                     <label for="message">Project Details / Message</label>
                     <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or inquiry..."></textarea>
                 </div>
-                <button type="submit" class="btn-large" style="padding: 12px 25px; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s; width: 100%;">
+                <button type="submit" class="submit-btn" style="padding: 12px 25px; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s; width: 100%;">
                     Send Message ➔
                 </button>
             </form>
