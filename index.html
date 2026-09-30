@@ -494,6 +494,149 @@
             background-color: #fff;
         }
 
+        /* Ask Gemini Floating Widget Styles */
+        .gemini-chat-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 22px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 999;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .gemini-chat-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+        }
+
+        .gemini-chat-popup {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 350px;
+            max-width: 90vw;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid #e2e8f0;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeInChat 0.3s ease;
+        }
+
+        @keyframes fadeInChat {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 15px;
+            height: 280px;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .chat-msg {
+            padding: 10px 14px;
+            border-radius: 10px;
+            max-width: 85%;
+            line-height: 1.4;
+        }
+
+        .chat-msg.bot {
+            background: #e2e8f0;
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-msg.user {
+            background: var(--accent-color);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-footer input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chat-footer input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .chat-footer button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .chat-footer button:hover {
+            background: var(--accent-hover);
+        }
+
         /* Professional Footer Styles with Hub Links */
         footer {
             background-color: #0b0f19;
@@ -773,7 +916,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Your Email</label>
-                    <input type="email5" id="email" name="email" required placeholder="Enter your email address">
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
                 </div>
                 <div class="form-group">
                     <label for="message">Project Details / Message</label>
@@ -786,6 +929,25 @@
         </section>
 
     </main>
+
+    <!-- Ask Gemini Floating Chat Widget -->
+    <button class="gemini-chat-btn" onclick="toggleChat()">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Ask Gemini
+    </button>
+
+    <div class="gemini-chat-popup" id="geminiChatPopup">
+        <div class="chat-header">
+            <h4><i class="fa-solid fa-sparkles"></i> NRS Assistant (Gemini)</h4>
+            <button class="chat-close" onclick="toggleChat()">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">হ্যালো! আমি NRS Creation-এর এআই অ্যাসিস্ট্যান্ট। আমাদের 3D আর্ট, ওয়াল আর্ট কালেকশন বা বই সম্পর্কে আপনার কি কিছু জানার আছে?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="এখানে আপনার প্রশ্ন লিখুন..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <!-- Professional Global Footer Section with Social Hub Links -->
     <footer>
@@ -811,5 +973,55 @@
         </div>
     </footer>
 
+    <!-- Chat Widget JavaScript -->
+    <script>
+        function toggleChat() {
+            const popup = document.getElementById('geminiChatPopup');
+            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            // User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.textContent = text;
+            chatBody.appendChild(userMsg);
+
+            input.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Bot Response Logic
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-msg bot';
+                
+                const lowerText = text.toLowerCase();
+                if (lowerText.includes('3d') || lowerText.includes('blender') || lowerText.includes('service')) {
+                    botMsg.textContent = "NRS Creation প্রিসিশন 3D মডেলিং, অ্যানিমেশন এবং VFX নিয়ে কাজ করে। আপনি আমাদের প্রজেক্টগুলো গ্যালারিতে দেখতে পারেন!";
+                } else if (lowerText.includes('book') || lowerText.includes('author') || lowerText.includes('বই') || lowerText.includes('abstract 100')) {
+                    botMsg.textContent = "আমরা 'Abstract 100' এবং 'Inspirational Series'-এর মতো জনপ্রিয় বই প্রকাশ করেছি। আপনি চাইলে আমাজন থেকে হার্ডকভার সংগ্রহ করতে পারেন।";
+                } else if (lowerText.includes('contact') || lowerText.includes('phone') || lowerText.includes('email') || lowerText.includes('যোগাযোগ')) {
+                    botMsg.textContent = "আপনি সরাসরি ইমেইল করতে পারেন info.nrscreation@gmail.com এ অথবা +8801921473322 নম্বরে যোগাযোগ করতে পারেন।";
+                } else {
+                    botMsg.textContent = "ধন্যবাদ আপনার প্রশ্নটির জন্য! আমাদের সার্ভিস, আর্টওয়ার্ক বা বই সম্পর্কে বিস্তারিত জানতে সাইটের নির্দিষ্ট সেকশনগুলো ভিজিট করতে পারেন অথবা কন্টাক্ট ফর্ম ব্যবহার করুন।";
+                }
+
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 600);
+        }
+    </script>
 </body>
 </html>
