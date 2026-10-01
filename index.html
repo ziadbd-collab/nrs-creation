@@ -445,6 +445,98 @@
             font-size: 0.85rem;
         }
 
+        /* Ask Gemini Widget Styles */
+        .gemini-widget-section {
+            margin: 5rem auto 0;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        .gemini-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .gemini-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .gemini-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .gemini-header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        .gemini-chat-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: 250px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .gemini-msg {
+            padding: 10px 14px;
+            border-radius: 10px;
+            max-width: 85%;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .gemini-msg.bot {
+            background: #1e293b;
+            color: #e2e8f0;
+            align-self: flex-start;
+            border-left: 3px solid var(--accent-color);
+        }
+        .gemini-msg.user {
+            background: var(--accent-color);
+            color: #ffffff;
+            align-self: flex-end;
+        }
+        .gemini-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        .gemini-input-group input {
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0b0f19;
+            color: #fff;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        .gemini-input-group input:focus {
+            border-color: var(--accent-color);
+        }
+        .gemini-input-group button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gemini-input-group button:hover {
+            background: var(--accent-hover);
+        }
+
         /* Professional Footer Styles with Hub Links */
         footer {
             background-color: #0b0f19;
@@ -684,6 +776,23 @@
             </div>
         </div>
 
+        <!-- Ask Gemini Interactive Widget Section -->
+        <section class="gemini-widget-section">
+            <div class="gemini-container">
+                <div class="gemini-header">
+                    <h3><i class="fa-solid fa-sparkles"></i> Ask Gemini about NRS Creation</h3>
+                    <p>Have questions about our 3D services, wall art, or literary works? Type below to chat!</p>
+                </div>
+                <div class="gemini-chat-box" id="geminiChatBox">
+                    <div class="gemini-msg bot">Hello! I am your virtual assistant powered by Gemini. Ask me anything about Shaikh Ziadul Haque's 3D studio, wall art collections, or published books!</div>
+                </div>
+                <div class="gemini-input-group">
+                    <input type="text" id="geminiUserInput" placeholder="e.g., What services does NRS Creation offer?" autocomplete="off">
+                    <button id="geminiSendBtn">Send</button>
+                </div>
+            </div>
+        </section>
+
         <!-- About The Agency Section -->
         <section class="about-section">
             <h3>About The Agency</h3>
@@ -738,6 +847,53 @@
             <p>&copy; 2026 NRS Creation. All rights reserved. Designed for digital excellence.</p>
         </div>
     </footer>
+
+    <!-- Ask Gemini Widget JavaScript Logic -->
+    <script>
+        const chatBox = document.getElementById('geminiChatBox');
+        const userInput = document.getElementById('geminiUserInput');
+        const sendBtn = document.getElementById('geminiSendBtn');
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('gemini-msg', sender);
+            msgDiv.innerText = text;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function handleUserQuery() {
+            const query = userInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            appendMessage(userInput.value, 'user');
+            userInput.value = '';
+
+            // Simple intelligent responses regarding studio portfolio details
+            setTimeout(() => {
+                let response = "That's a great question! NRS Creation offers professional 3D modeling, VFX, motion graphics, and showcases abstract wall art and literary works by Shaikh Ziadul Haque.";
+                
+                if (query.includes('service') || query.includes('3d') || query.includes('vfx') || query.includes('model')) {
+                    response = "NRS Creation specializes in 3D Product Modeling, Architectural Visualization, Blender Geometry Nodes, Physics Simulations, and Cinematic VFX pipelines.";
+                } else if (query.includes('art') || query.includes('wall') || query.includes('store') || query.includes('buy')) {
+                    response = "You can explore and purchase our exclusive abstract wall art prints directly on our Amaze Marketplace store linked in the navigation bar!";
+                } else if (query.includes('book') || query.includes('author') || query.includes('literature') || query.includes('write')) {
+                    response = "Shaikh Ziadul Haque has authored notable works including 'Abstract 100', 'Inspirational Series', and various philosophical and sci-fi stage plays available on Amazon KDP.";
+                } else if (query.includes('founder') || query.includes('ziad') || query.includes('who')) {
+                    response = "NRS Creation was founded by Shaikh Ziadul Haque, a multidisciplinary creative professional working as a 3D artist, author, playwright, and digital entrepreneur based in Dhaka.";
+                }
+
+                appendMessage(response, 'bot');
+            }, 600);
+        }
+
+        sendBtn.addEventListener('click', handleUserQuery);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserQuery();
+            }
+        });
+    </script>
 
 </body>
 </html>
