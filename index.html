@@ -38,52 +38,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-/* কিউব কন্টেইনার যেন হিরো সেকশনের বাইরে না যায় */
-.cube-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-}
+        /* কিউব কন্টেইনার যেন হিরো সেকশনের বাইরে না যায় */
+        .cube-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
 
-/* হিরো সেকশনের টেক্সট এবং বাটনগুলো যেন কিউবের উপরে থাকে */
-.hero h1, .hero p, .hero-buttons {
-    position: relative;
-    z-index: 1;
-}
+        /* হিরো সেকশনের টেক্সট এবং বাটনগুলো যেন কিউবের উপরে থাকে */
+        .hero h1, .hero p, .hero-buttons {
+            position: relative;
+            z-index: 1;
+        }
 
-/* বেসিক কিউব ডিজাইন (গ্লাস ইফেক্ট) */
-.cube {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    bottom: -150px;
-    animation: floatCube infinite linear;
-}
+        /* বেসিক কিউব ডিজাইন (গ্লাস ইফেক্ট) */
+        .cube {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            bottom: -150px;
+            animation: floatCube infinite linear;
+        }
 
-/* বিভিন্ন সাইজ ও স্পিডের কিউব */
-.cube1 { width: 80px; height: 80px; left: 10%; animation-duration: 18s; }
-.cube2 { width: 45px; height: 45px; left: 25%; animation-duration: 12s; animation-delay: 2s; }
-.cube3 { width: 100px; height: 100px; left: 70%; animation-duration: 22s; animation-delay: 4s; }
-.cube4 { width: 60px; height: 60px; left: 85%; animation-duration: 15s; animation-delay: 0s; }
-.cube5 { width: 30px; height: 30px; left: 50%; animation-duration: 10s; animation-delay: 5s; }
+        /* বিভিন্ন সাইজ ও স্পিডের কিউব */
+        .cube1 { width: 80px; height: 80px; left: 10%; animation-duration: 18s; }
+        .cube2 { width: 45px; height: 45px; left: 25%; animation-duration: 12s; animation-delay: 2s; }
+        .cube3 { width: 100px; height: 100px; left: 70%; animation-duration: 22s; animation-delay: 4s; }
+        .cube4 { width: 60px; height: 60px; left: 85%; animation-duration: 15s; animation-delay: 0s; }
+        .cube5 { width: 30px; height: 30px; left: 50%; animation-duration: 10s; animation-delay: 5s; }
 
-/* ভাসমান ও ঘোরার অ্যানিমেশন */
-@keyframes floatCube {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-800px) rotate(360deg);
-        opacity: 0;
-    }
-}
+        /* ভাসমান ও ঘোরার অ্যানিমেশন */
+        @keyframes floatCube {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         /* Base Styles & CSS Variables */
         :root {
             --primary-color: #0f172a;
@@ -849,167 +850,37 @@
                     <a href="https://twitter.com" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
-
-            <div class="about-links" style="margin-top: 2rem;">
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank">Amaze Marketplace</a>
-                <a href="#videos">YouTube Portfolio</a>
-                <a href="#gallery">Digital Gallery</a>
-            </div>
         </section>
 
     </main>
 
-    <!-- Professional Footer -->
+    <!-- Professional Footer Section -->
     <footer>
         <div class="footer-container">
             <div class="footer-col">
                 <h3>NRS Creation</h3>
-                <p>Official digital production studio specializing in 3D visualization, motion graphics, abstract wall art collections, and literary works.</p>
-                <!-- Active Social Icons in Footer -->
-                <div class="social-icons-wrapper">
-                    <a href="https://medium.com" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
-                    <a href="https://pinterest.com" target="_blank" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
-                    <a href="https://artstation.com" target="_blank" title="ArtStation"><i class="fa-brands fa-artstation"></i></a>
-                    <a href="https://twitter.com" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
+                <p>Official digital production studio specializing in high-end 3D design, visual effects, abstract art collections, and literary works.</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links-grid">
-                    <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Services</a></li>
-                    <li><a href="#videos"><i class="fa-solid fa-chevron-right"></i> Latest Videos</a></li>
-                    <li><a href="#gallery"><i class="fa-solid fa-chevron-right"></i> Wall Art Gallery</a></li>
-                    <li><a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank"><i class="fa-solid fa-chevron-right"></i> Amaze Store</a></li>
+                    <li><a href="#services"><i class="fa-solid fa-angle-right"></i> Services</a></li>
+                    <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i> Wall Art Gallery</a></li>
+                    <li><a href="#videos"><i class="fa-solid fa-angle-right"></i> Latest Videos</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Author & Studio</h4>
-                <p>Founded and managed by <strong>Shaikh Ziadul Haque</strong>. Bringing creative digital assets and imaginative literature to a global audience.</p>
+                <h4>E-Commerce & Store</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank"><i class="fa-solid fa-angle-right"></i> Amaze Store</a></li>
+                    <li><a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank"><i class="fa-solid fa-angle-right"></i> Author Page</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 NRS Creation. All rights reserved. Designed for digital excellence.</p>
+            <p>&copy; 2026 NRS Creation & Shaikh Ziadul Haque. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Ask Gemini Widget JavaScript Logic -->
-    <script>
-        const chatBox = document.getElementById('geminiChatBox');
-        const userInput = document.getElementById('geminiUserInput');
-        const sendBtn = document.getElementById('geminiSendBtn');
-
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('gemini-msg', sender);
-            msgDiv.innerText = text;
-            chatBox.appendChild(msgDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function handleUserQuery() {
-            const query = userInput.value.trim().toLowerCase();
-            if (!query) return;
-
-            appendMessage(userInput.value, 'user');
-            userInput.value = '';
-
-            // Simple intelligent responses regarding studio portfolio details
-            setTimeout(() => {
-                let response = "That's a great question! NRS Creation offers professional 3D modeling, VFX, motion graphics, and showcases abstract wall art and literary works by Shaikh Ziadul Haque.";
-                
-                if (query.includes('service') || query.includes('3d') || query.includes('vfx') || query.includes('model')) {
-                    response = "NRS Creation specializes in 3D Product Modeling, Architectural Visualization, Blender Geometry Nodes, Physics Simulations, and Cinematic VFX pipelines.";
-                } else if (query.includes('art') || query.includes('wall') || query.includes('store') || query.includes('buy')) {
-                    response = "You can explore and purchase our exclusive abstract wall art prints directly on our Amaze Marketplace store linked in the navigation bar!";
-                } else if (query.includes('book') || query.includes('author') || query.includes('literature') || query.includes('write')) {
-                    response = "Shaikh Ziadul Haque has authored notable works including 'Abstract 100', 'Inspirational Series', and various philosophical and sci-fi stage plays available on Amazon KDP.";
-                } else if (query.includes('founder') || query.includes('ziad') || query.includes('who')) {
-                    response = "NRS Creation was founded by Shaikh Ziadul Haque, a multidisciplinary creative professional working as a 3D artist, author, playwright, and digital entrepreneur based in Dhaka.";
-                } else if (query.includes('social') || query.includes('medium') || query.includes('pinterest') || query.includes('artstation')) {
-                    response = "You can find active creative profile links including Medium, Pinterest, ArtStation, and X (Twitter) in the footer and about section of this website!";
-                }
-
-                appendMessage(response, 'bot');
-            }, 600);
-        }
-
-        sendBtn.addEventListener('click', handleUserQuery);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleUserQuery();
-            }
-        });
-    </script>
-<!-- Live Gemini API Integration JavaScript Logic -->
-    <script>
-        const chatBox = document.getElementById('geminiChatBox');
-        const userInput = document.getElementById('geminiUserInput');
-        const sendBtn = document.getElementById('geminiSendBtn');
-
-        // আপনার জেমিনি এপিআই কি 
-        const GEMINI_API_KEY = "AQ.Ab8RN6IOqnvfdBsA3Dy6Hp2oCeOuajwHkXHXV47PwUPy5qV58Q"; 
-
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('gemini-msg', sender);
-            msgDiv.innerText = text;
-            chatBox.appendChild(msgDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        async function handleUserQuery() {
-            const query = userInput.value.trim();
-            if (!query) return;
-
-            appendMessage(query, 'user');
-            userInput.value = '';
-
-            // Loading state indicator
-            const loadingId = 'loading-' + Date.now();
-            const loadingDiv = document.createElement('div');
-            loadingDiv.classList.add('gemini-msg', 'bot');
-            loadingDiv.id = loadingId;
-            loadingDiv.innerText = "Thinking...";
-            chatBox.appendChild(loadingDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-
-            try {
-                const systemInstruction = "You are the official AI assistant for NRS Creation, a digital production studio and portfolio website founded by Shaikh Ziadul Haque. He is a multidisciplinary artist, 3D modeler (Blender specialist), author, playwright, and digital entrepreneur based in Dhaka, Bangladesh. NRS Creation offers 3D modeling, animation, VFX, and sells abstract wall art prints on Amaze Store (https://app.amazecommerce.com/shop/nrs-wall-art). Shaikh Ziadul Haque has authored published books like 'Abstract 100' and 'Inspirational Series' available on Amazon. Answer user questions professionally, helpfully, and concisely based on this context.";
-
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        contents: [
-                            { role: "user", parts: [{ text: systemInstruction + "\n\nUser Question: " + query }] }
-                        ]
-                    })
-                });
-
-                const data = await response.json();
-                document.getElementById(loadingId).remove();
-
-                if (data.candidates && data.candidates[0].content.parts[0].text) {
-                    const aiReply = data.candidates[0].content.parts[0].text;
-                    appendMessage(aiReply, 'bot');
-                } else {
-                    appendMessage("দুঃখিত, এই মুহূর্তে আপনার অনুরোধটি প্রক্রিয়া করা যাচ্ছে না। দয়া করে একটু পরে আবার চেষ্টা করুন।", 'bot');
-                }
-            } catch (error) {
-                document.getElementById(loadingId).remove();
-                appendMessage("নেটওয়ার্ক সমস্যা হয়েছে। দয়া করে আপনার ইন্টারনেট কানেকশন চেক করুন।", 'bot');
-            }
-        }
-
-        sendBtn.addEventListener('click', handleUserQuery);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleUserQuery();
-            }
-        });
-    </script>
 
 </body>
 </html>
