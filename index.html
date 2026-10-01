@@ -802,15 +802,15 @@
             </div>
         </div>
 
-        <!-- Ask Gemini Interactive Widget Section -->
+        <!-- Ask Gemini Interactive Widget Section with Live Gemini API -->
         <section class="gemini-widget-section">
             <div class="gemini-container">
                 <div class="gemini-header">
                     <h3><i class="fa-solid fa-sparkles"></i> Ask Gemini about NRS Creation</h3>
-                    <p>Have questions about our 3D services, wall art, or literary works? Type below to chat!</p>
+                    <p>Have questions about our 3D services, wall art, or literary works? Type below to chat live!</p>
                 </div>
                 <div class="gemini-chat-box" id="geminiChatBox">
-                    <div class="gemini-msg bot">Hello! I am your virtual assistant powered by Gemini. Ask me anything about Shaikh Ziadul Haque's 3D studio, wall art collections, or published books!</div>
+                    <div class="gemini-msg bot">Hello! I am your live virtual assistant powered by Gemini. Ask me anything about Shaikh Ziadul Haque's 3D studio, wall art collections, or published books!</div>
                 </div>
                 <div class="gemini-input-group">
                     <input type="text" id="geminiUserInput" placeholder="e.g., What services does NRS Creation offer?" autocomplete="off">
@@ -892,11 +892,14 @@
         </div>
     </footer>
 
-    <!-- Ask Gemini Widget JavaScript Logic -->
+    <!-- Live Gemini API Integration JavaScript Logic -->
     <script>
         const chatBox = document.getElementById('geminiChatBox');
         const userInput = document.getElementById('geminiUserInput');
         const sendBtn = document.getElementById('geminiSendBtn');
+
+        // আপনার জেমিনি এপিআই কি এখানে বসান
+        const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"; 
 
         function appendMessage(text, sender) {
             const msgDiv = document.createElement('div');
@@ -906,31 +909,55 @@
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        function handleUserQuery() {
-            const query = userInput.value.trim().toLowerCase();
+        async function handleUserQuery() {
+            const query = userInput.value.trim();
             if (!query) return;
 
-            appendMessage(userInput.value, 'user');
+            appendMessage(query, 'user');
             userInput.value = '';
 
-            // Simple intelligent responses regarding studio portfolio details
-            setTimeout(() => {
-                let response = "That's a great question! NRS Creation offers professional 3D modeling, VFX, motion graphics, and showcases abstract wall art and literary works by Shaikh Ziadul Haque.";
-                
-                if (query.includes('service') || query.includes('3d') || query.includes('vfx') || query.includes('model')) {
-                    response = "NRS Creation specializes in 3D Product Modeling, Architectural Visualization, Blender Geometry Nodes, Physics Simulations, and Cinematic VFX pipelines.";
-                } else if (query.includes('art') || query.includes('wall') || query.includes('store') || query.includes('buy')) {
-                    response = "You can explore and purchase our exclusive abstract wall art prints directly on our Amaze Marketplace store linked in the navigation bar!";
-                } else if (query.includes('book') || query.includes('author') || query.includes('literature') || query.includes('write')) {
-                    response = "Shaikh Ziadul Haque has authored notable works including 'Abstract 100', 'Inspirational Series', and various philosophical and sci-fi stage plays available on Amazon KDP.";
-                } else if (query.includes('founder') || query.includes('ziad') || query.includes('who')) {
-                    response = "NRS Creation was founded by Shaikh Ziadul Haque, a multidisciplinary creative professional working as a 3D artist, author, playwright, and digital entrepreneur based in Dhaka.";
-                } else if (query.includes('social') || query.includes('medium') || query.includes('pinterest') || query.includes('artstation')) {
-                    response = "You can find active creative profile links including Medium, Pinterest, ArtStation, and X (Twitter) in the footer and about section of this website!";
-                }
+            // Loading state indicator
+            const loadingId = 'loading-' + Date.now();
+            const loadingDiv = document.createElement('div');
+            loadingDiv.classList.add('gemini-msg', 'bot');
+            loadingDiv.id = loadingId;
+            loadingDiv.innerText = "Thinking...";
+            chatBox.appendChild(loadingDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
 
-                appendMessage(response, 'bot');
-            }, 600);
+            if (GEMINI_API_KEY === "YOUR_GEMINI_API_KEY" || !GEMINI_API_KEY) {
+                document.getElementById(loadingId).innerText = "Please configure your Gemini API Key in the script to enable live AI responses.";
+                return;
+            }
+
+            try {
+                const systemInstruction = "You are the official AI assistant for NRS Creation, a digital production studio and portfolio website founded by Shaikh Ziadul Haque. He is a multidisciplinary artist, 3D modeler (Blender specialist), author, playwright, and digital entrepreneur based in Dhaka, Bangladesh. NRS Creation offers 3D modeling, animation, VFX, and sells abstract wall art prints on Amaze Store (https://app.amazecommerce.com/shop/nrs-wall-art). Shaikh Ziadul Haque has authored published books like 'Abstract 100' and 'Inspirational Series' available on Amazon. Answer user questions professionally, helpfully, and concisely based on this context.";
+
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [
+                            { role: "user", parts: [{ text: systemInstruction + "\n\nUser Question: " + query }] }
+                        ]
+                    })
+                });
+
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
+
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    const aiReply = data.candidates[0].content.parts[0].text;
+                    appendMessage(aiReply, 'bot');
+                } else {
+                    appendMessage("Sorry, I couldn't process your request right now. Please try again later.", 'bot');
+                }
+            } catch (error) {
+                document.getElementById(loadingId).remove();
+                appendMessage("Network error occurred. Please check your connection or API key.", 'bot');
+            }
         }
 
         sendBtn.addEventListener('click', handleUserQuery);
