@@ -537,6 +537,32 @@
             background: var(--accent-hover);
         }
 
+        /* Social Icons Style */
+        .social-icons-wrapper {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .social-icons-wrapper a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: #1e293b;
+            color: #cbd5e1;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .social-icons-wrapper a:hover {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
         /* Professional Footer Styles with Hub Links */
         footer {
             background-color: #0b0f19;
@@ -549,7 +575,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             padding-bottom: 30px;
             border-bottom: 1px solid #1e293b;
@@ -813,7 +839,21 @@
                 </div>
             </div>
 
-            <div class="about-links">
+            <!-- Social Links inside About Section -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Connect with Shaikh Ziadul Haque & NRS Creation</h4>
+                <div class="social-icons-wrapper" style="justify-content: center;">
+                    <a href="https://github.com/ziadbd-collab" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://medium.com" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
+                    <a href="https://substack.com" target="_blank" title="Substack"><i class="fa-solid fa-pen-nib"></i></a>
+                    <a href="https://twitter.com" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://pinterest.com" target="_blank" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://linktr.ee" target="_blank" title="Linktree"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://artstation.com" target="_blank" title="ArtStation"><i class="fa-brands fa-artstation"></i></a>
+                </div>
+            </div>
+
+            <div class="about-links" style="margin-top: 2rem;">
                 <a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank">Amaze Marketplace</a>
                 <a href="#videos">YouTube Portfolio</a>
                 <a href="#gallery">Digital Gallery</a>
@@ -828,6 +868,16 @@
             <div class="footer-col">
                 <h3>NRS Creation</h3>
                 <p>Official digital production studio specializing in 3D visualization, motion graphics, abstract wall art collections, and literary works.</p>
+                <!-- Social Icons in Footer -->
+                <div class="social-icons-wrapper">
+                    <a href="https://github.com/ziadbd-collab" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://medium.com" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
+                    <a href="https://substack.com" target="_blank" title="Substack"><i class="fa-solid fa-pen-nib"></i></a>
+                    <a href="https://twitter.com" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://pinterest.com" target="_blank" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="https://linktr.ee" target="_blank" title="Linktree"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://artstation.com" target="_blank" title="ArtStation"><i class="fa-brands fa-artstation"></i></a>
+                </div>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -881,6 +931,8 @@
                     response = "Shaikh Ziadul Haque has authored notable works including 'Abstract 100', 'Inspirational Series', and various philosophical and sci-fi stage plays available on Amazon KDP.";
                 } else if (query.includes('founder') || query.includes('ziad') || query.includes('who')) {
                     response = "NRS Creation was founded by Shaikh Ziadul Haque, a multidisciplinary creative professional working as a 3D artist, author, playwright, and digital entrepreneur based in Dhaka.";
+                } else if (query.includes('social') || query.includes('github') || query.includes('medium') || query.includes('substack')) {
+                    response = "You can find all social links and platforms including GitHub, Medium, Substack, X, Pinterest, Linktree, and ArtStation in the footer and about section of this website!";
                 }
 
                 appendMessage(response, 'bot');
