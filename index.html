@@ -1,886 +1,615 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary SEO & Brand Title -->
-    <title>NRS Creation | Official Digital Production Studio & 3D Art Portfolio</title>
-    
-    <!-- Canonical URL to prevent duplicate indexing issues -->
-    <link rel="canonical" href="https://ziadbd-collab.github.io/nrs-creation/">
-    
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZXT4MCH0P"></script>
+    <title>NRS Creation | Multidisciplinary Digital Production Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      window.dataLayer = window.dataLayer || function(){dataLayer.push(arguments);};
-      gtag('js', new Date());
-      gtag('config', 'G-NZXT4MCH0P');
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0b10',
+                            card: '#12141f',
+                            indigo: '#6366f1',
+                            cyan: '#06b6d4',
+                            gold: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
     </script>
-    <meta name="google-site-verification" content="ftP3yqjQ418L_A6BTdEvIB7QxGecv7GSzrIVR8GgbJo" />  
-    
-    <!-- Enhanced Basic SEO & Meta Description -->
-    <meta name="description" content="NRS Creation is the official digital production studio by Shaikh Ziadul Haque, specializing in 3D modeling, VFX, motion graphics, abstract wall art, and literary works.">
-    <meta name="keywords" content="NRS Creation, Shaikh Ziadul Haque, 3D Artist, Digital Production Studio, Abstract Wall Art, Blender 3D, VFX, Motion Graphics, Literary Works, Amazon Author">
-    
-    <!-- Open Graph / Social Sharing Tags -->
-    <meta property="og:title" content="NRS Creation | Official Digital Production Studio">
-    <meta property="og:description" content="Explore professional 3D art, motion graphics, abstract wall art collections, and inspiring literary works by Shaikh Ziadul Haque.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ziadbd-collab.github.io/nrs-creation/">
-    <meta property="og:site_name" content="NRS Creation">
-    <meta name="p:domain_verify" content="af78de5fd46f5687615292e00d33f956"/>
-
-    <!-- Favicon -->
-    <link rel="icon" href="nrs_logo.png" type="image/png">
-    
-    <!-- FontAwesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- Google Fonts & Lucide Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js for 3D Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        /* কিউব কন্টেইনার যেন হিরো সেকশনের বাইরে না যায় */
-        .cube-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        /* হিরো সেকশনের টেক্সট এবং বাটনগুলো যেন কিউবের উপরে থাকে */
-        .hero h1, .hero p, .hero-buttons {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* বেসিক কিউব ডিজাইন (গ্লাস ইফেক্ট) */
-        .cube {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            bottom: -150px;
-            animation: floatCube infinite linear;
-        }
-
-        /* বিভিন্ন সাইজ ও স্পিডের কিউব */
-        .cube1 { width: 80px; height: 80px; left: 10%; animation-duration: 18s; }
-        .cube2 { width: 45px; height: 45px; left: 25%; animation-duration: 12s; animation-delay: 2s; }
-        .cube3 { width: 100px; height: 100px; left: 70%; animation-duration: 22s; animation-delay: 4s; }
-        .cube4 { width: 60px; height: 60px; left: 85%; animation-duration: 15s; animation-delay: 0s; }
-        .cube5 { width: 30px; height: 30px; left: 50%; animation-duration: 10s; animation-delay: 5s; }
-
-        /* ভাসমান ও ঘোরার অ্যানিমেশন */
-        @keyframes floatCube {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-800px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Base Styles & CSS Variables */
-        :root {
-            --primary-color: #0f172a;
-            --accent-color: #6366f1;
-            --accent-hover: #4f46e5;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            text-align: left;
-        }
-
-        header {
-            background-color: #0b0f19;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-            filter: brightness(1.2) contrast(1.1);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #ffffff;
-            background-color: var(--accent-color);
-            font-weight: 600;
-            padding: 0.65rem 1.4rem;
-            border-radius: 25px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
-        }
-
-        .nav-link:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        .hero {
-            background: linear-gradient(-45deg, #0b0f19, #1e1b4b, #312e81, #0f172a, #1e1b4b);
-            background-size: 400% 400%;
-            animation: heroGradientMotion 12s ease infinite;
-            color: #ffffff;
-            text-align: center;
-            padding: 6rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes heroGradientMotion {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero .cta-btn, .hero .secondary-btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .hero .cta-btn {
-            background-color: var(--accent-color);
-            color: #fff;
-        }
-
-        .hero .cta-btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .hero .secondary-btn {
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero .secondary-btn:hover {
-            border-color: #fff;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin: 3.5rem 0 2rem;
-            color: var(--primary-color);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 14px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 0.75rem 1.5rem;
-            background: var(--primary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background: #1e293b;
-        }
-
-        .catalog-cta {
-            text-align: center;
-            margin-top: 4rem;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            border: 1px solid #cbd5e1;
-        }
-
-        .catalog-cta h3 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .catalog-cta p {
-            color: var(--text-dark);
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .catalog-cta .btn-large {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 0.9rem 2.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .catalog-cta .btn-large:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        .about-section {
-            margin-top: 5rem;
-            padding: 3.5rem 2.5rem;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .about-section h3 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .about-intro {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .about-card {
-            background: var(--bg-color);
-            padding: 1.8rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .about-card h4 {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .about-links {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .about-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Testimonials Section Styles */
-        .testimonial-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 14px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-card p.quote {
-            font-style: italic;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .client-info h4 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .client-info span {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* Ask Gemini Widget Styles */
-        .gemini-widget-section {
-            margin: 5rem auto 0;
-            background: linear-gradient(135deg, #0f172a, #1e1b4b);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            color: #ffffff;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-        }
-        .gemini-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .gemini-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .gemini-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .gemini-header p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-        }
-        .gemini-chat-box {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: 250px;
-            overflow-y: auto;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .gemini-msg {
-            padding: 10px 14px;
-            border-radius: 10px;
-            max-width: 85%;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .gemini-msg.bot {
-            background: #1e293b;
-            color: #e2e8f0;
-            align-self: flex-start;
-            border-left: 3px solid var(--accent-color);
-        }
-        .gemini-msg.user {
-            background: var(--accent-color);
-            color: #ffffff;
-            align-self: flex-end;
-        }
-        .gemini-input-group {
-            display: flex;
-            gap: 10px;
-        }
-        .gemini-input-group input {
-            flex-grow: 1;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            background: #0b0f19;
-            color: #fff;
-            outline: none;
-            font-size: 0.95rem;
-        }
-        .gemini-input-group input:focus {
-            border-color: var(--accent-color);
-        }
-        .gemini-input-group button {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .gemini-input-group button:hover {
-            background: var(--accent-hover);
-        }
-
-        /* Social Icons Style */
-        .social-icons-wrapper {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-        .social-icons-wrapper a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            background: #1e293b;
-            color: #cbd5e1;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-        .social-icons-wrapper a:hover {
-            background: var(--accent-color);
-            color: #fff;
-            transform: translateY(-3px);
-        }
-
-        /* Professional Footer Styles with Hub Links */
-        footer {
-            background-color: #0b0f19;
-            color: #94a3b8;
-            padding: 4rem 1.5rem 2rem;
-            margin-top: 5rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .footer-col h3, .footer-col h4 {
-            color: #f3f4f6;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .footer-col p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #94a3b8;
-        }
-
-        .footer-links-grid {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links-grid li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s ease, padding-left 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-links-grid li a i {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-        }
-
-        .footer-links-grid li a:hover {
-            color: #ffffff;
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 25px;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+        .glass-panel { background: rgba(18, 20, 31, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .gradient-text { background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body>
+<body class="bg-[#0a0b10] text-gray-100 antialiased selection:bg-cyan-500 selection:text-black">
 
-    <!-- Header & Navbar Navigation -->
-    <header>
-        <div class="navbar">
-            <a href="#" class="logo-container">
-                <img src="nrs_logo.png" alt="NRS Creation Logo" class="logo-img">
+    <canvas id="bg-canvas"></canvas>
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-extrabold text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition">N</div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white block">NRS CREATION</span>
+                    <span class="text-[10px] tracking-widest text-cyan-400 font-semibold uppercase">Digital Studio</span>
+                </div>
             </a>
-            <a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank" class="nav-link">Visit Amaze Store ↗</a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-cyan-400 transition">Home</a>
+                <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#services" class="hover:text-cyan-400 transition">Services</a>
+                <a href="#portfolio" class="hover:text-cyan-400 transition">Works & Books</a>
+                <a href="#shop" class="hover:text-cyan-400 transition">Wall Art</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-semibold text-sm shadow-lg shadow-cyan-500/20 hover:opacity-90 transition">
+                    Get in Touch
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel px-6 py-4 border-t border-white/10 space-y-3">
+            <a href="#home" class="block text-sm font-medium hover:text-cyan-400">Home</a>
+            <a href="#about" class="block text-sm font-medium hover:text-cyan-400">About</a>
+            <a href="#services" class="block text-sm font-medium hover:text-cyan-400">Services</a>
+            <a href="#portfolio" class="block text-sm font-medium hover:text-cyan-400">Works & Books</a>
+            <a href="#shop" class="block text-sm font-medium hover:text-cyan-400">Wall Art</a>
+            <a href="#contact" class="block text-sm font-medium hover:text-cyan-400">Contact</a>
         </div>
     </header>
 
-   <!-- Interactive Hero Section -->
-    <section class="hero">
-        <!-- Floating Cubes Background -->
-        <div class="cube-container">
-            <div class="cube cube1"></div>
-            <div class="cube cube2"></div>
-            <div class="cube cube3"></div>
-            <div class="cube cube4"></div>
-            <div class="cube cube5"></div>
-        </div>
-        <h1>NRS Creation</h1>
-        <p>A dynamic production powerhouse blending conceptual abstract art, expert 3D creation, and cinematic visuals to transform contemporary aesthetic spaces.</p>
-        <div class="hero-buttons">
-            <a href="#gallery" class="cta-btn">Explore Artwork</a>
-            <a href="#videos" class="secondary-btn">Watch Latest Videos</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="container" style="text-align: center;">
-        <h2 class="section-title">Our Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>3D Modeling</h3>
-                <p>Precision product design, architectural visualization, and game-ready assets.</p>
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden px-4">
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wider uppercase shadow-inner">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Multidisciplinary Creative Studio</span>
             </div>
-            <div class="card">
-                <h3>Animation</h3>
-                <p>Engaging logo animations, motion graphics, and character animation for your brand.</p>
-            </div>
-            <div class="card">
-                <h3>VFX & Compositing</h3>
-                <p>Cinematic visual effects, motion tracking, and professional compositing services.</p>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+                Crafting Digital Universes, <span class="gradient-text">Stories, & Art</span>
+            </h1>
+            <p class="max-text-2xl sm:text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
+                Welcome to NRS Creation — where cutting-edge 3D modeling, animation, visual effects, provocative theatrical plays, and gripping literature converge into immersive experiences.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-bold shadow-xl shadow-cyan-500/25 hover:scale-105 transition flex items-center justify-center space-x-2">
+                    <span>Explore Creations</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel border border-white/10 hover:border-cyan-500/50 font-bold transition flex items-center justify-center space-x-2">
+                    <span>Collaborate With Us</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Main Content Layout Section -->
-    <main class="container">
-
-        <!-- YouTube Video Showcase Grid Section -->
-        <h2 class="section-title" id="videos">Latest Videos</h2>
-        <div class="grid">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/U_VbImyvG5U" allowfullscreen></iframe>
+    <section id="about" class="py-24 relative px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold">About Studio</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold">The Visionary Behind NRS Creation</h3>
             </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/EnE-QJ-9uq0" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/hiFjLHz9qKE" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Featured Wall Art Grid Collection Section -->
-        <h2 class="section-title" id="gallery">Featured Wall Art Collection</h2>
-        <div class="grid">
-            <!-- Animal Face Art Print -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/animal-face-art-print-wall-art.webp" alt="Animal Face Art Print" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>Animal Face Art Print</h3>
-                <p>Striking animal face art print designed to add a bold and artistic touch to contemporary interiors.</p>
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art/animal-face-art-print-wall-art" target="_blank" class="btn">Buy on Amaze Store</a>
-            </div>
-
-            <!-- Vibrant Abstract Art #2 -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/vibrant-abstract-art-print-wall-art-2.webp" alt="Vibrant Abstract Art Print #2" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>Vibrant Abstract Art #2</h3>
-                <p>Minimalist texture and balanced composition designed for modern aesthetic interior spaces.</p>
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art/vibrant-abstract-art-print-wall-art-2" target="_blank" class="btn">Buy on Amaze Store</a>
-            </div>
-
-            <!-- Vibrant Abstract Art #3 -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/vibrant-abstract-art-print-wall-art-3.webp" alt="Vibrant Abstract Art Print #3" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>Vibrant Abstract Art #3</h3>
-                <p>Sophisticated aesthetics and high-contrast geometric abstract artwork for stylish wall decoration.</p>
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art/vibrant-abstract-art-print-wall-art-3" target="_blank" class="btn">Buy on Amaze Store</a>
-            </div>
-
-            <!-- Vibrant Abstract Art #4 -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/vibrant-abstract-art-print-wall-art-4.webp" alt="Vibrant Abstract Art Print #4" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>Vibrant Abstract Art #4</h3>
-                <p>Elegant color palette and dynamic visual stroke art printed on premium quality canvas.</p>
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art/vibrant-abstract-art-print-wall-art-4" target="_blank" class="btn">Buy on Amaze Store</a>
-            </div>
-         
-            <!-- Vibrant Abstract Art #5 -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/vibrant-abstract-art-print-wall-art-5.webp" alt="Vibrant Abstract Art Print #5" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>Vibrant Abstract Art #5</h3>
-                <p>Captivating color tones and energetic stroke compositions tailored for elegant home galleries.</p>
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art/vibrant-abstract-art-print-wall-art-5" target="_blank" class="btn">Buy on Amaze Store</a>
-            </div>
-         
-            <!-- Vibrant Abstract Art #16 -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/vibrant-abstract-art-print-wall-art-16.webp" alt="Vibrant Abstract Art Print #16" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>Vibrant Abstract Art #16</h3>
-                <p>Dynamic and immersive abstract wall art print crafted to elevate luxury living environments.</p>
-                <a href="https://app.amazecommerce.com/shop/nrs-wall-art/vibrant-abstract-art-print-wall-art-16" target="_blank" class="btn">Buy on Amaze Store</a>
-            </div>
-        </div>
-
-        <!-- Call To Action Complete Catalog Banner Block -->
-        <div class="catalog-cta">
-            <h3>Looking for More Artwork & Apparel?</h3>
-            <p>Explore our complete catalog of high-quality canvas prints, custom apparel, and aesthetic home decor options.</p>
-            <a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank" class="btn-large">Explore All Products on Amaze Store ➔</a>
-        </div>
-
-        <!-- Literary Works Section -->
-        <h2 class="section-title">Literary Works</h2>
-        <p style="color: #64748b; font-size: 1rem; margin-bottom: 30px; text-align: center;">As an author, I translate complex ideas into engaging narratives that inspire and challenge perspectives. Below are my published books.</p>
-        
-        <div class="grid">
-            <!-- Book 1: Abstract 100 -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/abstract-100.jpg" alt="Abstract 100" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>📖 Abstract 100</h3>
-                <p>A compelling exploration of abstract concepts and contemporary thought, designed to challenge the reader's perspective.</p>
-                <a href="https://www.amazon.com/dp/B0GF7BF4ML?binding=hardcover" target="_blank" class="btn">View Hardcover ↗</a>
-            </div>
-
-            <!-- Book 2: Inspirational Series -->
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/ziadbd-collab/nrs-creation/main/inspirational-series.jpg" alt="Inspirational Series" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                <h3>✨ Inspirational Series</h3>
-                <p>A curated series focusing on the lives and achievements of remarkable figures who have shaped our history.</p>
-                <a href="https://www.amazon.com/dp/B0BLYFST27?binding=hardcover" target="_blank" class="btn">View Hardcover ↗</a>
-            </div>
-        </div>
-        
-        <div class="about-links" style="margin-top: 20px;">
-            <a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank" class="btn-large" style="padding: 10px 25px; text-decoration: none; color: white; background: var(--accent-color); border-radius: 30px;">View Full Author Page</a>
-        </div>
-
-        <!-- Client Testimonials Section -->
-        <h2 class="section-title">Client & Partner Feedback</h2>
-        <div class="grid">
-            <div class="testimonial-card">
-                <p class="quote">"NRS Creation delivered exceptional 3D modeling and animation assets for our digital project. The attention to detail and cinematic quality exceeded our expectations."</p>
-                <div class="client-info">
-                    <h4>Creative Director</h4>
-                    <span>Digital Media Partner</span>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel p-8 rounded-3xl relative overflow-hidden border border-cyan-500/20 shadow-2xl">
+                        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
+                        <h4 class="text-2xl font-bold mb-2">Shaikh Ziadul Haque</h4>
+                        <p class="text-cyan-400 text-sm font-medium mb-6">Founder, Multidisciplinary Artist, Writer & Playwright</p>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Shaikh Ziadul Haque is a versatile creative force deeply rooted in modern digital production, narrative arts, and performance. Associated with renowned theater groups like <strong class="text-white">Aranyak Natyadal</strong>, his artistic vision blends psychological depth with futuristic concepts.
+                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Through NRS Creation, he directs high-end 3D visual effects, writes thought-provoking stage plays, publishes visionary literature, and crafts striking abstract wall art collections.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="testimonial-card">
-                <p class="quote">"The abstract wall art prints purchased from NRS Creation have completely transformed our office interior space. Truly high-end aesthetic designs!"</p>
-                <div class="client-info">
-                    <h4>Interior Design Client</h4>
-                    <span>Bespoke Home Gallery</span>
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 space-y-3 hover:border-cyan-500/30 transition">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                            <i data-lucide="box" class="w-6 h-6"></i>
+                        </div>
+                        <h5 class="text-lg font-bold">3D Modeling & VFX</h5>
+                        <p class="text-gray-400 text-xs leading-relaxed">Expert pipeline in Blender, simulation, motion graphics, and surreal digital universes.</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 space-y-3 hover:border-indigo-500/30 transition">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <i data-lucide="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h5 class="text-lg font-bold">Literature & Plays</h5>
+                        <p class="text-gray-400 text-xs leading-relaxed">Authored acclaimed books and plays including speculative fiction and dramatic theatrical works.</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 space-y-3 hover:border-amber-500/30 transition">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400">
+                            <i data-lucide="theater" class="w-6 h-6"></i>
+                        </div>
+                        <h5 class="text-lg font-bold">Aranyak Heritage</h5>
+                        <p class="text-gray-400 text-xs leading-relaxed">Carrying forward rich theatrical storytelling traditions with contemporary artistic innovation.</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 space-y-3 hover:border-cyan-500/30 transition">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                            <i data-lucide="palette" class="w-6 h-6"></i>
+                        </div>
+                        <h5 class="text-lg font-bold">Abstract Wall Art</h5>
+                        <p class="text-gray-400 text-xs leading-relaxed">Curated physical & digital wall art prints bringing abstract aesthetics to modern spaces.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Ask Gemini Interactive Widget Section -->
-        <section class="gemini-widget-section">
-            <div class="gemini-container">
-                <div class="gemini-header">
-                    <h3><i class="fa-solid fa-sparkles"></i> Ask Gemini about NRS Creation</h3>
-                    <p>Have questions about our 3D services, wall art, or literary works? Type below to chat!</p>
+    <section id="services" class="py-24 relative px-4 bg-black/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Our Expertise</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold">Multidisciplinary Services</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 space-y-6 hover:border-cyan-500/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center group-hover:bg-cyan-500 group-hover:text-black transition">
+                        <i data-lucide="cpu" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold">3D Animation & VFX</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        High-end procedural design, character animation, photorealistic Blender rendering, and immersive visual effects for digital media and stage productions.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span>Blender 3D Modeling & Sculpting</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span>Particle Simulations & Lighting</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i><span>Motion Graphics & Compositing</span></li>
+                    </ul>
                 </div>
-                <div class="gemini-chat-box" id="geminiChatBox">
-                    <div class="gemini-msg bot">Hello! I am your virtual assistant powered by Gemini. Ask me anything about Shaikh Ziadul Haque's 3D studio, wall art collections, or published books!</div>
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 space-y-6 hover:border-indigo-500/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-500 group-hover:text-white transition">
+                        <i data-lucide="feather" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold">Playwriting & Books</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Compelling stage plays, thought-provoking philosophical books, children's literature, and speculative fiction exploring technology and human emotion.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i><span>Theatrical Stage Plays</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i><span>Novels & Sci-Fi Literature</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i><span>Children's Story Books</span></li>
+                    </ul>
                 </div>
-                <div class="gemini-input-group">
-                    <input type="text" id="geminiUserInput" placeholder="e.g., What services does NRS Creation offer?" autocomplete="off">
-                    <button id="geminiSendBtn">Send</button>
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 space-y-6 hover:border-amber-500/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-black transition">
+                        <i data-lucide="image" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold">Digital & Wall Art</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Exclusive abstract digital art prints designed to elevate interior spaces, available in high-resolution canvas prints and minimalist frames.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i><span>NRS Wall Art Collections</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i><span>Abstract & Sci-Fi Canvases</span></li>
+                        <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i><span>Custom Digital Commissions</span></li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About The Agency Section -->
-        <section class="about-section">
-            <h3>About The Agency</h3>
-            <p class="about-intro">NRS Creation is a multi-disciplinary design and multimedia studio specializing in premium 3D modeling, high-end motion graphics simulations, VFX workflows, and luxury custom interior artwork assets.</p>
+    <section id="portfolio" class="py-24 relative px-4">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Creative Catalog</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold">Published Books, Plays & 3D Works</h3>
+            </div>
             
-            <div class="about-grid">
-                <div class="about-card">
-                    <h4><span>🎨</span> Abstract Fine Arts</h4>
-                    <p>Creating highly conceptual, modern abstract wall decor and premium high-contrast dynamic textures tailored for bespoke homes.</p>
+            <!-- Books & Plays Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Book 1 -->
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-4 flex flex-col justify-between hover:border-cyan-500/40 transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-br from-indigo-900 to-cyan-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <i data-lucide="book" class="w-16 h-16 text-cyan-400 relative z-10"></i>
+                    </div>
+                    <div class="space-y-2 flex-grow">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-cyan-400">Sci-Fi Novel / Play</span>
+                        <h4 class="text-xl font-bold">Hawking is on Mars</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">A visionary exploration of physics, human destiny, and interplanetary consciousness.</p>
+                    </div>
+                    <button onclick="openInfoModal('Hawking is on Mars', 'A groundbreaking speculative work blending theoretical physics with profound philosophical inquiry into humanity’s future on Martian colonies.')" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500 hover:text-black font-semibold text-xs transition">
+                        View Details
+                    </button>
                 </div>
-                <div class="about-card">
-                    <h4><span>📐</span> 3D Modeling & VFX</h4>
-                    <p>Advanced Blender workflows incorporating deep Geometry Nodes engineering, physics simulation pipelines, and stunning cinematic edits.</p>
-                </div>
-                <div class="about-card">
-                    <h4><span>🚀</span> Digital Agency Ecosystem</h4>
-                    <p>Driving digital production, original literature architecture, and unique retail brands under a unified, premium umbrella brand.</p>
-                </div>
-            </div>
 
-            <!-- Active Social / Creative Links inside About Section -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Connect with Shaikh Ziadul Haque & NRS Creation</h4>
-                <div class="social-icons-wrapper" style="justify-content: center;">
-                    <a href="https://medium.com" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
-                    <a href="https://pinterest.com" target="_blank" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
-                    <a href="https://artstation.com" target="_blank" title="ArtStation"><i class="fa-brands fa-artstation"></i></a>
-                    <a href="https://twitter.com" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <!-- Book 2 -->
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-4 flex flex-col justify-between hover:border-cyan-500/40 transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-br from-blue-900 to-indigo-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <i data-lucide="cpu" class="w-16 h-16 text-indigo-400 relative z-10"></i>
+                    </div>
+                    <div class="space-y-2 flex-grow">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-indigo-400">Tech & Philosophy</span>
+                        <h4 class="text-xl font-bold">Connected in Logic</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Analyzing the intersection of human neural logic and artificial intelligence networks.</p>
+                    </div>
+                    <button onclick="openInfoModal('Connected in Logic', 'An intellectual journey examining how digital algorithms mirror human thought patterns and emotional constructs.')" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-indigo-500 hover:text-white font-semibold text-xs transition">
+                        View Details
+                    </button>
                 </div>
-            </div>
-        </section>
 
-    </main>
+                <!-- Book 3 -->
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-4 flex flex-col justify-between hover:border-cyan-500/40 transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <i data-lucide="zap" class="w-16 h-16 text-pink-400 relative z-10"></i>
+                    </div>
+                    <div class="space-y-2 flex-grow">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-pink-400">Dramatic Play</span>
+                        <h4 class="text-xl font-bold">The Relay Baton</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">A gripping theatrical play about generational struggles, duty, and societal transition.</p>
+                    </div>
+                    <button onclick="openInfoModal('The Relay Baton', 'A deeply emotional stage play written for theatrical performance, exploring the passing of ideals across generations.')" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-pink-500 hover:text-white font-semibold text-xs transition">
+                        View Details
+                    </button>
+                </div>
 
-    <!-- Professional Footer Section -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>NRS Creation</h3>
-                <p>Official digital production studio specializing in high-end 3D design, visual effects, abstract art collections, and literary works.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul class="footer-links-grid">
-                    <li><a href="#services"><i class="fa-solid fa-angle-right"></i> Services</a></li>
-                    <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i> Wall Art Gallery</a></li>
-                    <li><a href="#videos"><i class="fa-solid fa-angle-right"></i> Latest Videos</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>E-Commerce & Store</h4>
-                <ul class="footer-links-grid">
-                    <li><a href="https://app.amazecommerce.com/shop/nrs-wall-art" target="_blank"><i class="fa-solid fa-angle-right"></i> Amaze Store</a></li>
-                    <li><a href="https://www.amazon.com/stores/Shaikh-Ziadul-Haque/author/B0BDDHZ8X7" target="_blank"><i class="fa-solid fa-angle-right"></i> Author Page</a></li>
-                </ul>
+                <!-- Book 4 -->
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-4 flex flex-col justify-between hover:border-cyan-500/40 transition">
+                    <div class="w-full h-48 rounded-2xl bg-gradient-to-br from-amber-900 to-red-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <i data-lucide="activity" class="w-16 h-16 text-amber-400 relative z-10"></i>
+                    </div>
+                    <div class="space-y-2 flex-grow">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">Speculative Literature</span>
+                        <h4 class="text-xl font-bold">The Algorithmic Womb</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Exploring bio-digital evolution, synthetic birth, and the redefinition of creation.</p>
+                    </div>
+                    <button onclick="openInfoModal('The Algorithmic Womb', 'A provocative book investigating the boundaries between biological life and machine-generated consciousness.')" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-black font-semibold text-xs transition">
+                        View Details
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 NRS Creation & Shaikh Ziadul Haque. All rights reserved.</p>
+    </section>
+
+    <section id="shop" class="py-24 relative px-4 bg-black/40">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold">NRS Wall Art</h2>
+                <h3 class="text-3xl sm:text-5xl font-extrabold">Curated Print Collections</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-6">
+                    <div class="w-full h-64 rounded-2xl bg-gradient-to-tr from-cyan-950 to-indigo-950 flex items-center justify-center border border-cyan-500/20">
+                        <i data-lucide="image" class="w-20 h-20 text-cyan-400/60"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-xl font-bold">Neon Cyberscape #01</h4>
+                            <span class="text-cyan-400 font-bold">$120</span>
+                        </div>
+                        <p class="text-gray-400 text-xs">High-resolution matte canvas print featuring futuristic abstract geometry.</p>
+                    </div>
+                    <button onclick="orderItem('Neon Cyberscape #01')" class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm transition">
+                        Order Print
+                    </button>
+                </div>
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-6">
+                    <div class="w-full h-64 rounded-2xl bg-gradient-to-tr from-indigo-950 to-purple-950 flex items-center justify-center border border-indigo-500/20">
+                        <i data-lucide="image" class="w-20 h-20 text-indigo-400/60"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-xl font-bold">Quantum Nebula</h4>
+                            <span class="text-indigo-400 font-bold">$145</span>
+                        </div>
+                        <p class="text-gray-400 text-xs">Deep space abstract art print celebrating stellar birth and digital noise.</p>
+                    </div>
+                    <button onclick="orderItem('Quantum Nebula')" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition">
+                        Order Print
+                    </button>
+                </div>
+                <div class="glass-panel p-6 rounded-3xl border border-white/5 space-y-6">
+                    <div class="w-full h-64 rounded-2xl bg-gradient-to-tr from-amber-950 to-red-950 flex items-center justify-center border border-amber-500/20">
+                        <i data-lucide="image" class="w-20 h-20 text-amber-400/60"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-xl font-bold">Theatrical Mindset</h4>
+                            <span class="text-amber-400 font-bold">$110</span>
+                        </div>
+                        <p class="text-gray-400 text-xs">Minimalist dramatic art print inspired by classical stage design and modernity.</p>
+                    </div>
+                    <button onclick="orderItem('Theatrical Mindset')" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm transition">
+                        Order Print
+                    </button>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section id="contact" class="py-24 relative px-4">
+        <div class="max-w-4xl mx-auto glass-panel p-8 sm:p-12 rounded-3xl border border-cyan-500/20 shadow-2xl space-y-8">
+            <div class="text-center space-y-4">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Get In Touch</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold">Let's Create Something Extraordinary</h3>
+                <p class="text-gray-400 text-sm max-w-lg mx-auto">Have a project in mind, book inquiry, or collaboration proposal? Drop us a message.</p>
+            </div>
+            <form onsubmit="handleContact(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-semibold text-gray-300">Your Name</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500 focus:outline-none text-sm transition" placeholder="John Doe">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-semibold text-gray-300">Your Email</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500 focus:outline-none text-sm transition" placeholder="john@example.com">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-semibold text-gray-300">Message</label>
+                    <textarea rows="5" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500 focus:outline-none text-sm transition" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 hover:opacity-90 transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Chat Toggle Button -->
+        <button id="chat-toggle" class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition">
+            <i data-lucide="bot" class="w-7 h-7"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[90vw] sm:w-[380px] h-[500px] glass-panel rounded-3xl border border-cyan-500/30 shadow-2xl flex flex-col overflow-hidden">
+            <!-- Chat Header -->
+            <div class="px-6 py-4 bg-white/5 border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+                    <div>
+                        <h4 class="text-sm font-bold">NRS AI Assistant</h4>
+                        <p class="text-[10px] text-gray-400">Powered by Gemini AI</p>
+                    </div>
+                </div>
+                <button id="chat-close" class="text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-4 text-xs">
+                <div class="flex items-start space-x-2">
+                    <div class="w-7 h-7 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-white/5 border border-white/10 max-w-[80%] leading-relaxed text-gray-200">
+                        Hello! I am your AI assistant for NRS Creation. Ask me anything about Shaikh Ziadul Haque, our 3D services, books like 'Hawking is on Mars', or wall art!
+                    </div>
+                </div>
+            </div>
+            <!-- Chat Input -->
+            <div class="p-4 bg-white/5 border-t border-white/10 flex items-center space-x-2">
+                <input type="text" id="chat-input" placeholder="Ask about books, plays, or services..." class="flex-grow px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500 focus:outline-none text-xs">
+                <button id="chat-send" class="p-2.5 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-12 border-t border-white/10 text-center text-xs text-gray-500 space-y-4">
+        <div class="flex items-center justify-center space-x-2">
+            <div class="w-6 h-6 rounded-lg bg-cyan-500 flex items-center justify-center text-black font-bold text-xs">N</div>
+            <span class="font-bold text-gray-300">NRS CREATION</span>
+        </div>
+        <p>&copy; 2026 NRS Creation Studio. All rights reserved. Founded by Shaikh Ziadul Haque.</p>
     </footer>
 
+    <!-- Modal for Book/Play details -->
+    <div id="info-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="glass-panel p-8 rounded-3xl max-w-md w-full border border-cyan-500/30 space-y-6 relative">
+            <button onclick="closeInfoModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold">Title</h3>
+            <p id="modal-desc" class="text-gray-300 text-sm leading-relaxed">Description...</p>
+            <button onclick="closeInfoModal()" class="w-full py-3 rounded-xl bg-cyan-500 text-black font-bold text-sm">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Functions
+        function openInfoModal(title, desc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('info-modal').classList.remove('hidden');
+        }
+        function closeInfoModal() {
+            document.getElementById('info-modal').classList.add('hidden');
+        }
+
+        function orderItem(item) {
+            alert(`Thank you for your interest in "${item}". Our team will contact you to complete your order.`);
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent successfully to NRS Creation.');
+            e.target.reset();
+        }
+
+        // Chat Widget Toggle
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWindow = document.getElementById('chat-window');
+        const chatClose = document.getElementById('chat-close');
+        chatToggle.addEventListener('click', () => chatWindow.classList.toggle('hidden'));
+        chatClose.addEventListener('click', () => chatWindow.classList.add('hidden'));
+
+        // Three.js Immersive Background Animation
+        const canvas = document.getElementById('bg-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Create Particle Sphere / Geometric Constellation
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 1500;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 15;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.025,
+            color: 0x06b6d4,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Add Floating Torus Knot
+        const torusGeometry = new THREE.TorusKnotGeometry(1.5, 0.4, 100, 16);
+        const torusMaterial = new THREE.MeshBasicMaterial({
+            color: 0x6366f1,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const torusKnot = new THREE.Mesh(torusGeometry, torusMaterial);
+        scene.add(torusKnot);
+
+        camera.position.z = 5;
+
+        // Mouse movement interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        window.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) - 0.5;
+            mouseY = (event.clientY / window.innerHeight) - 0.5;
+        });
+
+        // Animation Loop
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+
+            particlesMesh.rotation.y = elapsedTime * 0.05 + mouseX * 0.5;
+            particlesMesh.rotation.x = elapsedTime * 0.03 + mouseY * 0.5;
+
+            torusKnot.rotation.x = elapsedTime * 0.2;
+            torusKnot.rotation.y = elapsedTime * 0.3;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Responsive Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Gemini API Chat Integration
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatMessages = document.getElementById('chat-messages');
+
+        async function sendToGeminiAI(userText) {
+            // Append user message
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'flex justify-end';
+            userMsgDiv.innerHTML = `<div class="p-3 rounded-2xl bg-cyan-500 text-black max-w-[80%] font-medium">${userText}</div>`;
+            chatMessages.appendChild(userMsgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            chatInput.value = '';
+
+            // Typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'flex items-start space-x-2';
+            typingDiv.innerHTML = `<div class="w-7 h-7 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-4 h-4"></i></div><div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-gray-400">Thinking...</div>`;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            lucide.createIcons();
+
+            try {
+                const systemPrompt = "You are the official AI assistant for NRS Creation, a multidisciplinary digital studio and creative agency founded by Shaikh Ziadul Haque (multidisciplinary artist, writer, playwright, and member of Aranyak Natyadal). NRS Creation specializes in 3D modeling, Blender animation, visual effects, WALL ART, and published books/plays like 'Hawking is on Mars', 'Connected in Logic', 'The Relay Baton', and 'The Algorithmic Womb'. Answer questions professionally, politely, and concisely.";
+                
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: userText }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                document.getElementById('typing-indicator').remove();
+
+                const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't process that right now.";
+
+                const aiMsgDiv = document.createElement('div');
+                aiMsgDiv.className = 'flex items-start space-x-2';
+                aiMsgDiv.innerHTML = `<div class="w-7 h-7 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-4 h-4"></i></div><div class="p-3 rounded-2xl bg-white/5 border border-white/10 max-w-[80%] leading-relaxed text-gray-200">${aiText}</div>`;
+                chatMessages.appendChild(aiMsgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                lucide.createIcons();
+
+            } catch (error) {
+                if(document.getElementById('typing-indicator')) document.getElementById('typing-indicator').remove();
+                const errorMsgDiv = document.createElement('div');
+                errorMsgDiv.className = 'flex items-start space-x-2';
+                errorMsgDiv.innerHTML = `<div class="p-3 rounded-2xl bg-red-500/20 text-red-400 max-w-[80%]">Sorry, connection error occurred.</div>`;
+                chatMessages.appendChild(errorMsgDiv);
+            }
+        }
+
+        chatSend.addEventListener('click', () => {
+            if(chatInput.value.trim()) sendToGeminiAI(chatInput.value.trim());
+        });
+        chatInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter' && chatInput.value.trim()) sendToGeminiAI(chatInput.value.trim());
+        });
+    </script>
 </body>
 </html>
